@@ -1,5 +1,5 @@
 // DonKAI Prediction Exchange - Live Linked UI
-document.addEventListener('DOMContentLoaded', () => {
+// Code runs immediately since loaded at bottom of body
     
     // Core Configuration
     const CONFIG = {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const nettingPoolPct = document.getElementById('netting-pool-pct');
     const nettingPoolBar = document.getElementById('netting-pool-bar');
-    const nettingPoolVal = document.getElementById('netting-pool-val');
+    const nettingPoolText = document.getElementById('netting-pool-text');
     const nettingVisualizerBox = document.getElementById('netting-visualizer-box');
 
     // Leverage and Collateral Elements
@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateTicketUI() {
+        if (!wagerAmountInput || !collateralSelect) return;
         const amount = parseFloat(wagerAmountInput.value) || 0;
         
         // 1. Collateral Haircut Calculations
@@ -131,10 +132,12 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (collateralType === 'DIGau') factor = 0.90;
 
         const netCollateralValue = amount * factor;
-        collateralNetValEl.textContent = `$${netCollateralValue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USDC`;
+        if (collateralNetValEl) {
+            collateralNetValEl.textContent = `$${netCollateralValue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USDC`;
+        }
 
         // 2. Leverage and Position Size
-        const leverage = parseInt(leverageSelect.value) || 1;
+        const leverage = leverageSelect ? (parseInt(leverageSelect.value) || 1) : 1;
         const positionSize = netCollateralValue * leverage;
 
         // 3. Get Odds Rate
@@ -148,53 +151,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 5. Daily Staking Yield (4.5% APR on collateral margin value)
         const dailyYield = netCollateralValue * 0.045 / 365;
-        dailyStakingYieldEl.textContent = `$${dailyYield.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USDC / day`;
+        if (dailyStakingYieldEl) {
+            dailyStakingYieldEl.textContent = `$${dailyYield.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USDC / day`;
+        }
 
         // 6. Leverage Liquidation Barrier Calculations
         if (leverage > 1) {
-            liqBarrierRow.style.display = 'flex';
+            if (liqBarrierRow) liqBarrierRow.style.display = 'flex';
             // Price drop where margin is fully depleted (10% maintenance margin)
             const liqBarrier = odds * (1 - 0.90 / leverage);
-            liqBarrierValEl.textContent = `$${liqBarrier.toFixed(2)}`;
+            if (liqBarrierValEl) liqBarrierValEl.textContent = `$${liqBarrier.toFixed(2)}`;
         } else {
-            liqBarrierRow.style.display = 'none';
+            if (liqBarrierRow) liqBarrierRow.style.display = 'none';
         }
 
         // 7. Update Text Display
-        avgExecRateEl.textContent = `$${odds.toFixed(2)} / share`;
-        potentialPayoutEl.textContent = `$${potentialPayout.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USDC`;
-        ecnFeeEl.textContent = `$${ecnFee.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USDC`;
+        if (avgExecRateEl) avgExecRateEl.textContent = `$${odds.toFixed(2)} / share`;
+        if (potentialPayoutEl) potentialPayoutEl.textContent = `$${potentialPayout.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USDC`;
+        if (ecnFeeEl) ecnFeeEl.textContent = `$${ecnFee.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USDC`;
 
         // 8. Update Netting Visualizer & Account Routing Status (based on total position size)
-        if (positionSize >= 100000) {
-            nettingVisualizerBox.style.background = 'rgba(0, 242, 254, 0.05)';
-            nettingVisualizerBox.style.borderColor = 'rgba(0, 242, 254, 0.2)';
-            nettingPoolPct.textContent = 'Scenario A';
-            nettingPoolBar.style.width = '100%';
-            nettingPoolBar.style.background = 'var(--accent-cyan)';
-            nettingPoolVal.parentElement.innerHTML = `💸 Total position ($${positionSize.toLocaleString()}) matches **Scenario A (Direct Institutional)**. Sweeps directly to dedicated BitGo Child Enterprise.`;
-        } else {
-            nettingVisualizerBox.style.background = 'rgba(157, 78, 221, 0.05)';
-            nettingVisualizerBox.style.borderColor = 'rgba(157, 78, 221, 0.2)';
-            nettingPoolBar.style.background = 'linear-gradient(90deg, var(--accent-cyan), var(--accent-purple))';
-            
-            const marketPool = state.nettingPools[state.selectedMarket];
-            const currentNetVal = Math.abs(marketPool.YES - marketPool.NO);
-            const newNetVal = currentNetVal + positionSize;
-            const pct = Math.min(100, (newNetVal / 100000) * 100);
-            
-            nettingPoolPct.textContent = `${pct.toFixed(0)}% Full`;
-            nettingPoolBar.style.width = `${pct}%`;
-            
-            if (newNetVal >= 100000) {
-                nettingPoolVal.parentElement.innerHTML = `⚡ Current net pool: **$${newNetVal.toLocaleString()}**. **Threshold Crossed!** Placing this wager triggers immediate BitGo OTC Block execution.`;
+        if (nettingVisualizerBox && nettingPoolPct && nettingPoolBar && nettingPoolText) {
+            if (positionSize >= 100000) {
+                nettingVisualizerBox.style.background = 'rgba(0, 242, 254, 0.05)';
+                nettingVisualizerBox.style.borderColor = 'rgba(0, 242, 254, 0.2)';
+                nettingPoolPct.textContent = 'Scenario A';
+                nettingPoolBar.style.width = '100%';
+                nettingPoolBar.style.background = 'var(--accent-cyan)';
+                nettingPoolText.innerHTML = `💸 Total position ($${positionSize.toLocaleString()}) matches **Scenario A (Direct Institutional)**. Sweeps directly to dedicated BitGo Child Enterprise.`;
             } else {
-                nettingPoolVal.parentElement.innerHTML = `Current net pool: **$${currentNetVal.toLocaleString()}** (Est. New: $${newNetVal.toLocaleString()}). Wager will queue internally. Crosses the $100k threshold at next transaction.`;
+                nettingVisualizerBox.style.background = 'rgba(157, 78, 221, 0.05)';
+                nettingVisualizerBox.style.borderColor = 'rgba(157, 78, 221, 0.2)';
+                nettingPoolBar.style.background = 'linear-gradient(90deg, var(--accent-cyan), var(--accent-purple))';
+                
+                const marketPool = state.nettingPools[state.selectedMarket];
+                const currentNetVal = Math.abs(marketPool.YES - marketPool.NO);
+                const newNetVal = currentNetVal + positionSize;
+                const pct = Math.min(100, (newNetVal / 100000) * 100);
+                
+                nettingPoolPct.textContent = `${pct.toFixed(0)}% Full`;
+                nettingPoolBar.style.width = `${pct}%`;
+                
+                if (newNetVal >= 100000) {
+                    nettingPoolText.innerHTML = `⚡ Current net pool: **$${newNetVal.toLocaleString()}**. **Threshold Crossed!** Placing this wager triggers immediate BitGo OTC Block execution.`;
+                } else {
+                    nettingPoolText.innerHTML = `Current net pool: **$${currentNetVal.toLocaleString()}** (Est. New: $${newNetVal.toLocaleString()}). Wager will queue internally. Crosses the $100k threshold at next transaction.`;
+                }
             }
         }
 
-        tabBuyYes.textContent = `BUY YES ($${yesOdds.toFixed(2)})`;
-        tabBuyNo.textContent = `BUY NO ($${(1 - yesOdds).toFixed(2)})`;
+        if (tabBuyYes) tabBuyYes.textContent = `BUY YES ($${yesOdds.toFixed(2)})`;
+        if (tabBuyNo) tabBuyNo.textContent = `BUY NO ($${(1 - yesOdds).toFixed(2)})`;
     }
 
     // Place Wager Click Handler (Dynamic API post)
@@ -757,7 +764,22 @@ Vulnerability Check: Bad actor fully severed (legal release verified). Legacy de
         cockpitTerminal.scrollTop = cockpitTerminal.scrollHeight;
     }
 
+    // Expose global UnykornVoice helper to bridge inline button triggers
+    window.UnykornVoice = {
+        speakCard: (elementId) => {
+            const el = document.getElementById(elementId);
+            if (el) {
+                // Clear any extra whitespace and speak
+                speakWarning(el.textContent.replace(/\s+/g, ' ').trim());
+            }
+        },
+        stop: () => {
+            if (synth) synth.cancel();
+        }
+    };
+
     // Set default tab on load
     switchTab(navCustody, [custodyView], [yieldView, hedgingView, ledgerView, audioTourPanel]);
     updateTicketUI();
-});
+
+
