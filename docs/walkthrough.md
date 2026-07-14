@@ -1,78 +1,54 @@
-# UnyKorn Kiwi RWA System Setup & Verification Walkthrough
+# UnyKorn × Kiwi's Mulligan Joint Venture Terminal Setup Walkthrough
 
-I have successfully initialized, configured, and pushed the dedicated **Kiwi's Mulligan 1** RWA joint venture codebase to the `FTHTrading/Kiwi` repository on GitHub.
+I have successfully redesigned the **Kiwi RWA Platform** into a high-fidelity, institutional private bank and hedge fund dashboard, pushed all changes to branch `main` on the **`FTHTrading/Kiwi`** remote, and verified the entire interactive flow.
 
 ---
 
 ## ⛳ Actions Accomplished
 
-### 1. Codebase Partitioning & Repository Launch
-*   **The Setup:** Created a standalone workspace at [kiwi-rwa-platform](file:///C:/Users/Kevan/.gemini/antigravity-ide/scratch/kiwi-rwa-platform).
-*   **Git Ingestion:** Cleaned old git logs, initialized a fresh repository, configured the `.gitignore`, and pushed the codebase directly to the remote: **`https://github.com/FTHTrading/Kiwi.git`** on branch `main`.
+### 1. Private Bank Style & Styling Tokens
+*   **Aesthetic Shift:** Removed prediction market colors and neon indicators. Set up a deep navy base (`#0B132B`), charcoal containers (`#1C2541`), slate-grey body text (`#8D99AE`), and champagne-gold accents (`#D4AF37`) in [style.css](file:///C:/Users/Kevan/.gemini/antigravity-ide/scratch/kiwi-rwa-platform/style.css).
+*   **Header Rebrand:** Synced the title tag and logo: `⛳ UnyKorn × Kiwi's Mulligan Joint Venture Terminal`.
 
-### 2. Premium Country-Club Branding & Styling
-*   **Colors & Aesthetic:** Modified [style.css](file:///C:/Users/Kevan/.gemini/antigravity-ide/scratch/kiwi-rwa-platform/style.css) to replace blue/purple prediction market tones with a luxury forest-green and champagne-gold aesthetic (`--bg-main: #040906`, `--bg-card: rgba(14, 25, 17, 0.45)`, and `--accent-cyan: #00e676`).
-*   **Brand Placement:** Rebranded the portal logo to read: `⛳ UnyKorn | Kiwi's Mulligan`.
+### 2. 5-Module Terminal Layout Restructuring
+I reorganized [index.html](file:///C:/Users/Kevan/.gemini/antigravity-ide/scratch/kiwi-rwa-platform/index.html) and [app.js](file:///C:/Users/Kevan/.gemini/antigravity-ide/scratch/kiwi-rwa-platform/app.js) to follow the institutional architecture:
+*   **Module 1: BitGo Custody:** Displays qualified custody vault states, 3-of-5 key matrices, whitelisted destinations, 24h velocity timelocks, cold staking (4.5% APR), and export buttons for SOC 1/SOC 2 Type II compliance audits.
+*   **Module 2: Compliance & Capital:** Displays the $27.5M Preferred equity raise and houses the **Bad Actor Severance Gate** (Rule 506(d) vetting, $1.2M historical debt excision, and fair-valuation validation).
+*   **Module 3: x402 Yield Engine:** Integrates RWA stats and loops Toast POS venue sweep simulators to the custody wallet.
+*   **Module 4: Hedging & Staking:** Clears bilateral event swaps (Permit approvals, groundbreaking delay hedges) and locks USDC to boost APY (+2.5% boost) based on fan metrics. Includes the HTML5 Guided Presentation Audio narrator.
+*   **Module 5: Governance Ledger:** Displays Bobby Jones Links management status, Cherry Bekaert tax credentials, Niraj Sheth board seat assignments, 5-Year projection tables, and cryptographic SHA-256 hash-chained block streams.
 
-### 3. Fractions & Yield RWA Performance Dashboard
-*   **RWA Metrics:** Added a dedicated fractions view displaying properties of the **$27.5 Million** preferred equity raise, $48M venue valuation, and 9.5% APY preferred return.
-*   **Toast POS Ticker:** Programmed a live terminal sweep simulator inside [app.js](file:///C:/Users/Kevan/.gemini/antigravity-ide/scratch/kiwi-rwa-platform/app.js) that appends simulated cash-register charges (e.g. Bay rentals, F&B dining orders) swept from Toast POS registers directly to Unykorn's BitGo child escrow.
+### 3. Dynamic Top Compliance Status Bar
+*   Mapped the `#top-status-indicator` at the top of the navbar to update automatically:
+    - **Initial State:** Displays `Compliance Block: Gate Active` (Red block) while the Reg A+ liabilities remain on the cap table.
+    - **Post-Excision State:** Updates to `Compliance Passed: Approved` (Green) after clicking *Excise Bad Actor & Debt*, triggering the BitGo policies and x402 sweeps to launch.
 
-### 4. Port Configuration & Server Deployments
-*   **Express REST Broker:** Set up the backend server in [server.js](file:///C:/Users/Kevan/.gemini/antigravity-ide/scratch/kiwi-rwa-platform/server.js) to run on port **`3392`**.
-*   **WebSocket CLOB Server:** Configured the Central Limit Order Book server to listen on port **`3398`**.
-*   **Local Web Server:** Launched a background python web server serving the frontend on port **`9092`**.
-
-### 5. Interactive JV Pipeline Cockpit
-*   **Defaults:** Configured the Multi-Agent JV Vetting Cockpit to load as the landing page of the portal.
-*   **Speech Synthesis Alert:** Integrates browser voice announcements to read compliance exceptions aloud when a Ponzi or Rule 506(d) associate is detected.
-*   **Excision:** Clicking *Excise Bad Actor & Debt* modifies the cap table payload and executes the pipeline to full success, generating whitelisted BitGo multisig parameters and x402 token configurations.
-
-### 6. OneDrive Diligence Assets Ingestion
-*   **Asset Import:** Created `assets/` subfolder in the workspace and recursively copied all six OneDrive documents, pitch decks, and MP4 videos:
-    - `KiwisMulligan1_MNDA_UnyKorn.docx` (Mutual NDA)
-    - `KiwisMulligan1_IRL_DueDiligence_Request_UnyKorn.docx` (Information Request List)
-    - `Kiwi Mulligan - IP (1) july 13.pdf` & `Kiwi Mulligan - IP (1) july 13 (1).pdf` (Pitch Decks)
-    - `Kiwis Mulligans Video.mp4` (Conceptual Drone & Site Layout Video)
-    - `Golf and Baseball Kiwis (2).mp4` (Simulator walkthrough video)
-*   **Git Commits:** Pushed all binary files and documents directly to the remote repository.
-
-### 7. Public-Facing Investor Pitch Portal (`investor.html`)
-*   **Design & UI:** Developed a dedicated marketing landing page served at `/investor.html` containing:
-    - Side-by-side customized HTML5 video players embedding the simulator walkthrough and the drone layout videos.
-    - An interactive **Document Vault** allowing direct accredited investor downloads of the MNDA, IRL request, and pitch PDF.
-    - A **5-Year Projections Table** showing Consolidated Revenue, Operating Expenses, EBITDA, and 32% EBITDA Margins.
-    - A built-in "Listen Pitch Deck" Speech Synthesis guided narration tour.
-*   **Entry Points:** Styled and linked an "Investor Pitch ↗" anchor redirect in the primary dashboard's header navbar opening the portal in a new browser tab.
+### 4. Code cleanups & Git pushes
+*   Surgically resolved syntax error on line 665 in `app.js` and missing audio tour elements in `index.html`.
+*   Pushed all visual layouts and scripts to your GitHub remote.
 
 ---
 
 ## 📸 Automated Verification Results
 
-A browser subagent verified all views and executed the pipeline successfully:
-*   **Platform Dashboard Recording:** ![Kiwi RWA Platform Validation](/verify_kiwi_rwa_platform_1784022809173.webp)
-*   **Platform Dashboard Success:** ![Multi-Agent Pipeline Successful Ingestion](/pipeline_success_1784022867361.png)
-*   **Investor Pitch Portal Recording:** ![Kiwi Investor Portal Validation](/verify_investor_pitch_portal_1784023079588.webp)
-*   **Investor Pitch Portal Screenshot:** ![Investor Pitch Page Details](/investor_portal_full_1784023129732.png)
+A browser subagent verified all modules, ran the compliance vetting pipeline, and captured the pages:
+*   **Redesigned Dashboard Validation:** ![Kiwi Private Bank Redesign Validation](/verify_kiwi_private_bank_terminal_1784024068129.webp)
+*   **Initial Dashboard Screen:** ![Redesigned Initial UI Layout](/redesign_initial_view_1784024076036.png)
+*   **Governance Ledger Rendering:** ![Governance Ledger Details](/governance_ledger_page_1784024202223.png)
+*   **Investor Pitch Portal Layout:** ![Investor Pitch Page Details](/investor_pitch_page_1784024200141.png)
 
 ---
 
-## 🎯 RWA Strategic Game Plan: The Unykorn Playbook
+## 🔒 BitGo Sub-Organization Setup Checklist (`KiwiMulligan1_JV_Portfolio`)
 
-To launch the **Kiwi's Mulligan 1** preferred equity raise and operate it securely:
+To activate the isolated enterprise child organization inside your Unykorn BitGo dashboard:
 
-### 1. The Legal Cleansing
-Before any capital is moved, Paresh Govan must provide:
-- Signed cap-table releases proving that the SEC Rule 506(d) disqualified early investor has been fully paid out.
-- Balance sheet documents proving that the $1.2M in legacy Regulation A+ legal/marketing debt is non-recourse to the new JV SPV.
-
-### 2. Isolated BitGo Sub-Portfolios
-To capture the $27.5M raise from Castle Placement accredited investors:
-- Provision a dedicated `KiwiMulligan1_JV_Portfolio` child organization under Unykorn's parent enterprise account.
-- Deploy a 3-of-5 Multi-Sig key matrix involving Unykorn admins, advisors, and legal recovery escrow. 
-- Restrict Paresh Govan to restricted spender rights and enforce a strict 24-hour proposal time-lock on non-whitelisted addresses.
-
-### 3. x402 Automated Yield Sweeps
-- **Issuance:** Mint security tokens mirroring the preferred stock on Solana (Token-2022) or Stellar. Enforce transfer restrictions in token metadata, preventing trades to non-KYC'd wallets.
-- **POS Routing:** Toast POS terminals at the Alpharetta venue route raw sales daily to a crypto gateway.
-- **Distribution:** Stablecoins (USDC) are swept to the x402 yield smart contract and distributed monthly directly to token-holders' on-chain addresses to meet the 9.5% APY preferred return.
+1.  **Organization Provisioning:** In the BitGo Enterprise admin console, create a new Child Org named `KiwiMulligan1_JV_Portfolio` under parent ID `unykorn_enterprise_id`.
+2.  **Multisig Key Generation:** Provision a 3-of-5 multisig schema with:
+    - Key 1: `Kevan_Burns_Admin_Key` (Unykorn Controller)
+    - Key 2: `Unykorn_Treasury_Key` (Corporate Escrow)
+    - Key 3: `Young_Woo_JV_Key` (Sponsor Co-Admin)
+    - Key 4: `Legal_Recovery_1` (Cherry Bekaert/Advisors)
+    - Key 5: `Legal_Recovery_2` (Legal Escrow)
+3.  **Address Whitelist Lock:** Restrict outbound transactions to the Castle Placement Escrow wallet and the Georgia land title escrow.
+4.  **Timelocks & Velocity Limits:** Enforce a maximum daily transfer volume of $2,000,000. Any withdrawal above this limit requires a 48-hour administrative delay and signatures from three out of five keyholders to clear.
