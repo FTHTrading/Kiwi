@@ -301,11 +301,26 @@
         voices = synth.getVoices();
         voiceSelect.innerHTML = '<option value="">Default System Voice</option>';
         
-        // Filter for English speaking voices or fallback
-        const englishVoices = voices.filter(v => v.lang.includes('en'));
-        const targetList = englishVoices.length > 0 ? englishVoices : voices;
+        // Filter out legacy robotic SAPI5/eSpeak voices
+        let targetList = voices.filter(v => {
+            const nameLower = v.name.toLowerCase();
+            const isRobotic = nameLower.includes('desktop') || 
+                              nameLower.includes('espeak') || 
+                              nameLower.includes('legacy') || 
+                              nameLower.includes('zira') || 
+                              nameLower.includes('david') || 
+                              nameLower.includes('hazel');
+            return !isRobotic;
+        });
 
-        targetList.forEach((voice, index) => {
+        if (targetList.length === 0) {
+            targetList = voices;
+        }
+
+        // Sort voices alphabetically by name for a clean UI selection
+        targetList.sort((a, b) => a.name.localeCompare(b.name));
+
+        targetList.forEach((voice) => {
             const option = document.createElement('option');
             option.value = voice.name;
             option.textContent = `${voice.name} (${voice.lang})`;
