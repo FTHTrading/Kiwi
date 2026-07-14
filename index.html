@@ -336,6 +336,94 @@ System ready. Awaiting deal payload...</div>
 
       </div>
 
+      <!-- Interactive System Audio Tour (Read or Listen) -->
+      <section class="card" id="audio-tour-panel" style="display: none; flex-direction: column; gap: 15px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="volume-2" style="color: var(--accent-cyan);"></i> Guided Institutional Audio Presentation
+        </h3>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">
+          Listen to Unykorn's multi-agent underwriting, BitGo custody policies, and x402 routing mechanism.
+        </p>
+
+        <!-- Audio controls -->
+        <div class="audio-controls-row" style="display: flex; justify-content: space-between; align-items: center; gap: 15px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <div class="audio-btns" style="display: flex; gap: 10px;">
+            <button id="audio-play-btn" class="btn" style="background: rgba(0, 230, 118, 0.1); border: 1px solid var(--accent-green); color: var(--accent-green); cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; font-weight: 600; font-size: 11px;">
+              <i data-lucide="play" style="width: 12px; height: 12px;"></i> Listen Presentation
+            </button>
+            <button id="audio-stop-btn" class="btn" disabled style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); color: var(--text-muted); cursor: not-allowed; display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; font-weight: 600; font-size: 11px;">
+              <i data-lucide="square" style="width: 12px; height: 12px;"></i> Stop
+            </button>
+          </div>
+
+          <div class="audio-options-group" style="display: flex; align-items: center; gap: 12px;">
+            <div class="voice-visualizer" id="equalizer-bars" style="display: flex; gap: 3px; height: 12px; align-items: flex-end;">
+              <div class="voice-bar" style="width: 2px; height: 3px; background: var(--accent-cyan); transition: var(--transition);"></div>
+              <div class="voice-bar" style="width: 2px; height: 3px; background: var(--accent-cyan); transition: var(--transition);"></div>
+              <div class="voice-bar" style="width: 2px; height: 3px; background: var(--accent-cyan); transition: var(--transition);"></div>
+              <div class="voice-bar" style="width: 2px; height: 3px; background: var(--accent-cyan); transition: var(--transition);"></div>
+              <div class="voice-bar" style="width: 2px; height: 3px; background: var(--accent-cyan); transition: var(--transition);"></div>
+            </div>
+            
+            <select id="voice-select" class="audio-select" title="Select Voice" style="background:#030712; color:#fff; border:1px solid var(--border-color); border-radius:4px; padding:4px; font-size:10px; cursor:pointer;">
+              <option value="">Default Voice</option>
+            </select>
+            
+            <select id="speed-select" class="audio-select" title="Speech Speed" style="background:#030712; color:#fff; border:1px solid var(--border-color); border-radius:4px; padding:4px; font-size:10px; cursor:pointer;">
+              <option value="0.8">0.8x Speed</option>
+              <option value="1.0" selected>1.0x Speed</option>
+              <option value="1.2">1.2x Speed</option>
+              <option value="1.5">1.5x Speed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Narratives Content -->
+        <div class="narratives-box" id="narratives-container" style="display: flex; flex-direction: column; gap: 12px;">
+          
+          <div class="narrative-block" data-index="0" id="narrative-0" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.15);">
+            <h4 style="margin: 0 0 6px 0; color: #fff; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="percent" style="width: 14px; height: 14px; color: var(--accent-cyan);"></i>
+              1. x402 YieldPOS Sweep Mechanics
+            </h4>
+            <p style="margin: 0; font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
+              Unykorn's x402 protocol interfaces directly with point-of-sale registers at the experiential golf venue, sweeping F&B, bay rental, and memberships daily. Funds route to a secure child escrow wallet, automatically paying out a preferred 9.5% APY yield in USDC to token holders monthly.
+            </p>
+          </div>
+
+          <div class="narrative-block" data-index="1" id="narrative-1" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.15);">
+            <h4 style="margin: 0 0 6px 0; color: #fff; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="shield" style="width: 14px; height: 14px; color: var(--gold);"></i>
+              2. BitGo Enterprise Custody Safeguards
+            </h4>
+            <p style="margin: 0; font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
+              Raise capital is isolated in a bankruptcy-remote child portfolio. All operations utilize a 3-of-5 Multi-Sig key matrix split between admins, legal recovery, and independent escrows, backed by a $250 Million Lloyd's of London crime insurance wrap.
+            </p>
+          </div>
+
+          <div class="narrative-block" data-index="2" id="narrative-2" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.15);">
+            <h4 style="margin: 0 0 6px 0; color: #fff; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="trending-up" style="width: 14px; height: 14px; color: var(--accent-cyan);"></i>
+              3. Bilateral Event Swap Risk Hedging
+            </h4>
+            <p style="margin: 0; font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
+              Accredited investors and lenders can purchase event-based swaps to hedge zoning, groundbreaking, and venue membership delays. All event swap collateral remains segregated and CFTC swap clearing compliant.
+            </p>
+          </div>
+
+          <div class="narrative-block" data-index="3" id="narrative-3" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.15);">
+            <h4 style="margin: 0 0 6px 0; color: #fff; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="lock" style="width: 14px; height: 14px; color: var(--accent-purple);"></i>
+              4. Cryptographic State Chain Audit Ledger
+            </h4>
+            <p style="margin: 0; font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
+              All daily POS sweeps and RWA ledger states are logged in an append-only database using SHA-256 hash chaining. If any record is modified post-execution, the chain breaks and programmatically locks custody payouts.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
       <!-- MODULE 5: GOVERNANCE LEDGER VIEW -->
       <div id="ledger-view" class="tab-content-panel" style="display: none; flex-direction: column; gap: 2rem; width: 100%;">
         

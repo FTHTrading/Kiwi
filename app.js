@@ -662,7 +662,9 @@ document.addEventListener('DOMContentLoaded', () => {
         highlightStep(1);
 
         writeLog('⚡ [SYSTEM] Ingesting deal payload #KiwisMulligan1...');
-        writeLog('⚡ [SYSTEM] Ingestion paramet        setTimeout(() => {
+        writeLog('⚡ [SYSTEM] Ingestion parameters parsing...');
+
+        setTimeout(() => {
             writeLog('\n▶️ [AGENT 1] Initializing Underwriting & Bad-Actor Vetting Engine...');
             writeLog('   - Target:   Fine Mulligans Inc. (Delaware C-Corp)');
             writeLog('   - Entitlements & Zoning Check: OK');
