@@ -28,13 +28,32 @@ I have successfully initialized, configured, and pushed the dedicated **Kiwi's M
 *   **Speech Synthesis Alert:** Integrates browser voice announcements to read compliance exceptions aloud when a Ponzi or Rule 506(d) associate is detected.
 *   **Excision:** Clicking *Excise Bad Actor & Debt* modifies the cap table payload and executes the pipeline to full success, generating whitelisted BitGo multisig parameters and x402 token configurations.
 
+### 6. OneDrive Diligence Assets Ingestion
+*   **Asset Import:** Created `assets/` subfolder in the workspace and recursively copied all six OneDrive documents, pitch decks, and MP4 videos:
+    - `KiwisMulligan1_MNDA_UnyKorn.docx` (Mutual NDA)
+    - `KiwisMulligan1_IRL_DueDiligence_Request_UnyKorn.docx` (Information Request List)
+    - `Kiwi Mulligan - IP (1) july 13.pdf` & `Kiwi Mulligan - IP (1) july 13 (1).pdf` (Pitch Decks)
+    - `Kiwis Mulligans Video.mp4` (Conceptual Drone & Site Layout Video)
+    - `Golf and Baseball Kiwis (2).mp4` (Simulator walkthrough video)
+*   **Git Commits:** Pushed all binary files and documents directly to the remote repository.
+
+### 7. Public-Facing Investor Pitch Portal (`investor.html`)
+*   **Design & UI:** Developed a dedicated marketing landing page served at `/investor.html` containing:
+    - Side-by-side customized HTML5 video players embedding the simulator walkthrough and the drone layout videos.
+    - An interactive **Document Vault** allowing direct accredited investor downloads of the MNDA, IRL request, and pitch PDF.
+    - A **5-Year Projections Table** showing Consolidated Revenue, Operating Expenses, EBITDA, and 32% EBITDA Margins.
+    - A built-in "Listen Pitch Deck" Speech Synthesis guided narration tour.
+*   **Entry Points:** Styled and linked an "Investor Pitch ↗" anchor redirect in the primary dashboard's header navbar opening the portal in a new browser tab.
+
 ---
 
 ## 📸 Automated Verification Results
 
 A browser subagent verified all views and executed the pipeline successfully:
-*   **Verification Recording:** ![Kiwi RWA Platform Validation](/verify_kiwi_rwa_platform_1784022809173.webp)
-*   **Pipeline Success Screenshot:** ![Multi-Agent Pipeline Successful Ingestion](/pipeline_success_1784022867361.png)
+*   **Platform Dashboard Recording:** ![Kiwi RWA Platform Validation](/verify_kiwi_rwa_platform_1784022809173.webp)
+*   **Platform Dashboard Success:** ![Multi-Agent Pipeline Successful Ingestion](/pipeline_success_1784022867361.png)
+*   **Investor Pitch Portal Recording:** ![Kiwi Investor Portal Validation](/verify_investor_pitch_portal_1784023079588.webp)
+*   **Investor Pitch Portal Screenshot:** ![Investor Pitch Page Details](/investor_portal_full_1784023129732.png)
 
 ---
 
