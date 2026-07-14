@@ -797,4 +797,132 @@ Vulnerability Check: Bad actor fully severed (legal release verified). Legacy de
     switchTab(navCustody, [custodyView], [yieldView, hedgingView, ledgerView, audioTourPanel]);
     updateTicketUI();
 
+    // --- Connect Wallet Modal Logic ---
+    const connectBtn = document.getElementById('connect-wallet-btn');
+    const walletModal = document.getElementById('wallet-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalSignBtn = document.getElementById('modal-sign-btn');
+    const modalStatusLog = document.getElementById('modal-status-log');
+
+    if (connectBtn && walletModal) {
+        connectBtn.addEventListener('click', () => {
+            walletModal.classList.add('show');
+            modalStatusLog.innerHTML = `<div style="color: var(--accent-purple);">[HANDSHAKE INITIATED] Connecting via WalletConnect protocol...</div>`;
+            modalSignBtn.disabled = false;
+            modalSignBtn.textContent = 'Initiate Signature Request';
+        });
+
+        const closeModal = () => {
+            walletModal.classList.remove('show');
+        };
+
+        if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+        walletModal.addEventListener('click', (e) => {
+            if (e.target === walletModal) closeModal();
+        });
+
+        if (modalSignBtn) {
+            modalSignBtn.addEventListener('click', () => {
+                modalSignBtn.disabled = true;
+                modalSignBtn.textContent = 'Signing Multi-Sig Block...';
+                
+                let step = 0;
+                const steps = [
+                    { text: '📡 Querying BitGo Enterprise Rules Registry...', color: 'var(--text-secondary)' },
+                    { text: '🔒 Policy verified: "KiwiMulligan1_JV_Recovery_Fence" matches.', color: 'var(--accent-green)' },
+                    { text: '🔑 Requesting Co-Signer Signature from Safeguard Vault...', color: 'var(--text-secondary)' },
+                    { text: '✍️ Signature successfully appended. Block Hash: 0x4E57...Fa13', color: 'var(--accent-cyan)' },
+                    { text: '🔌 Connection Established. Sub-Account: UnyKorn_Escrow_Primary', color: 'var(--gold)' }
+                ];
+
+                const interval = setInterval(() => {
+                    if (step < steps.length) {
+                        const div = document.createElement('div');
+                        div.style.color = steps[step].color;
+                        div.style.marginBottom = '4px';
+                        div.textContent = steps[step].text;
+                        modalStatusLog.appendChild(div);
+                        modalStatusLog.scrollTop = modalStatusLog.scrollHeight;
+                        step++;
+                    } else {
+                        clearInterval(interval);
+                        setTimeout(() => {
+                            closeModal();
+                            connectBtn.innerHTML = `<i data-lucide="check-circle" style="width:13px; height:13px;"></i> Connected: 0x4E57...Fa13`;
+                            connectBtn.style.color = 'var(--accent-green)';
+                            connectBtn.style.borderColor = 'var(--accent-green)';
+                            connectBtn.style.background = 'rgba(0, 245, 160, 0.05)';
+                            if (window.lucide) window.lucide.createIcons();
+                        }, 1200);
+                    }
+                }, 1000);
+            });
+        }
+    }
+
+    // --- Token-2022 Compliance Hook Simulation Logic ---
+    const hookSender = document.getElementById('hook-sender');
+    const hookReceiver = document.getElementById('hook-receiver');
+    const hookAmount = document.getElementById('hook-amount');
+    const hookSimulateBtn = document.getElementById('hook-simulate-btn');
+    const hookConsoleLog = document.getElementById('hook-console-log');
+
+    if (hookSimulateBtn && hookConsoleLog) {
+        hookSimulateBtn.addEventListener('click', () => {
+            const sender = hookSender ? hookSender.value.trim() : '';
+            const receiver = hookReceiver ? hookReceiver.value.trim() : '';
+            const amount = hookAmount ? hookAmount.value : 0;
+
+            if (!sender || !receiver || amount <= 0) {
+                hookConsoleLog.innerHTML = `<div style="color: var(--accent-red); margin-bottom: 4px;">[AUDIT FAILED] Error: Invalid sender, receiver, or amount.</div>`;
+                return;
+            }
+
+            hookSimulateBtn.disabled = true;
+            hookSimulateBtn.textContent = 'Auditing Transfer...';
+            hookConsoleLog.innerHTML = `<div style="color: var(--accent-purple); margin-bottom: 4px;">[INTERCEPTED] Transaction initiated: Transferring ${amount} x402 tokens. Intercepted by Solana Token-2022 Transfer Hook.</div>`;
+
+            let step = 0;
+            const traceSteps = [
+                { text: `🔍 Resolving sender KYC record: ${sender}...`, color: 'var(--text-secondary)' },
+                { text: '✓ Sender Whitelist status: ACTIVE. Verification proof valid.', color: 'var(--accent-green)' },
+                { text: `🔍 Resolving receiver KYC record: ${receiver}...`, color: 'var(--text-secondary)' },
+                { 
+                    text: receiver.startsWith('0x') && receiver.length > 10
+                        ? '✓ Receiver Whitelist status: ACTIVE. Regulatory vetting checks passed.'
+                        : '❌ Receiver Whitelist status: NOT FOUND. KYC verification proof missing or expired.',
+                    color: receiver.startsWith('0x') && receiver.length > 10 ? 'var(--accent-green)' : 'var(--accent-red)'
+                },
+                { text: '⚖️ Verifying Reg D 506(c) investor cap limits & velocity rules...', color: 'var(--text-secondary)' },
+                { 
+                    text: receiver.startsWith('0x') && receiver.length > 10
+                        ? `🚀 Compliance Passed: Approved. Executing transaction block. Block Hash: 0x${Math.random().toString(16).substring(2, 10)}...`
+                        : '🚨 Compliance Failed: Transaction rejected by Token-2022 transfer hook. Funds returned to sender.',
+                    color: receiver.startsWith('0x') && receiver.length > 10 ? 'var(--accent-cyan)' : 'var(--accent-red)'
+                }
+            ];
+
+            const interval = setInterval(() => {
+                if (step < traceSteps.length) {
+                    const next = traceSteps[step];
+                    if (step === 4 && !(receiver.startsWith('0x') && receiver.length > 10)) {
+                        step++;
+                        return;
+                    }
+                    const div = document.createElement('div');
+                    div.style.color = next.color;
+                    div.style.marginBottom = '4px';
+                    div.textContent = next.text;
+                    hookConsoleLog.appendChild(div);
+                    hookConsoleLog.scrollTop = hookConsoleLog.scrollHeight;
+                    step++;
+                } else {
+                    clearInterval(interval);
+                    hookSimulateBtn.disabled = false;
+                    hookSimulateBtn.textContent = 'Audit & Execute Transfer';
+                }
+            }, 1000);
+        });
+    }
+
 

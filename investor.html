@@ -25,8 +25,13 @@
         <li><a href="index.html" class="nav-link">JV Cockpit</a></li>
         <li><a class="nav-link active">Public Pitch Portal</a></li>
       </ul>
-      <div style="font-size: 11px; color: var(--accent-purple); border: 1px solid var(--accent-purple); padding: 6px 14px; border-radius: 20px; font-weight: 600; background: rgba(223, 184, 108, 0.05);">
-        SEC Reg D 506(c)
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="font-size: 11px; color: var(--accent-purple); border: 1px solid var(--accent-purple); padding: 6px 14px; border-radius: 20px; font-weight: 600; background: rgba(223, 184, 108, 0.05);">
+          SEC Reg D 506(c)
+        </div>
+        <button id="connect-wallet-btn" class="btn" style="background: rgba(212,175,55,0.1); border: 1px solid var(--gold); color: var(--gold); padding: 6px 14px; border-radius: 20px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: var(--transition);">
+          <i data-lucide="wallet" style="width: 13px; height: 13px;"></i> Connect Wallet
+        </button>
       </div>
     </div>
   </nav>
@@ -72,6 +77,60 @@
         <div style="font-size: 11px; color: var(--text-secondary);">Minimum Subscription</div>
         <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent-purple); font-family: var(--font-mono); margin-top: 6px;">$100,000</div>
         <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Accredited Investors Only</div>
+      </div>
+    </section>
+
+    <!-- Interactive Institutional ROI Yield Simulator -->
+    <section class="card" style="display: flex; flex-direction: column; gap: 15px;">
+      <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin: 0; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="calculator" style="color: var(--accent-cyan); width: 18px; height: 18px;"></i> Interactive ROI & Yield Calculator
+      </h3>
+      <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+        Simulate your preferred return and performance-booster yield on tokenized equity subscriptions based on Bobby Jones Links operation models.
+      </p>
+
+      <div class="sim-grid">
+        <!-- Input section -->
+        <div style="display: flex; flex-direction: column; gap: 15px; justify-content: center;">
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 6px;">
+              <label style="margin: 0; font-weight: 600; color: #fff;">Subscription Capital Size (USDC)</label>
+              <strong id="sim-input-val" style="color: var(--accent-cyan); font-family: var(--font-mono);">$100,000</strong>
+            </div>
+            <input type="range" id="sim-leverage-slider" min="100000" max="5000000" step="50000" value="100000" style="width: 100%; accent-color: var(--accent-cyan); background: #030712; cursor: pointer;">
+          </div>
+          <div style="font-size: 10px; color: var(--text-muted); line-height: 1.4;">
+            *Subscription sizes are locked to $100k increments and bounded to a maximum allocation of $5.0M per institutional entity.
+          </div>
+        </div>
+
+        <!-- Output section -->
+        <div class="sim-output-container">
+          <div style="display: flex; justify-content: space-between; font-size: 11px;">
+            <span style="color: var(--text-secondary);">Preferred Return (9.5% APY)</span>
+            <strong style="color: #fff;" id="sim-pref-yield">$9,500 USDC / yr</strong>
+          </div>
+          <div class="sim-bar-bg">
+            <div class="sim-bar-fill" id="sim-pref-bar" style="width: 79%; background: var(--accent-cyan);"></div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; font-size: 11px; margin-top: 5px;">
+            <span style="color: var(--text-secondary);">Performance Booster (2.5% APY)</span>
+            <strong style="color: var(--accent-green);" id="sim-boost-yield">$2,500 USDC / yr</strong>
+          </div>
+          <div class="sim-bar-bg">
+            <div class="sim-bar-fill" id="sim-boost-bar" style="width: 21%; background: var(--accent-green);"></div>
+          </div>
+
+          <div style="border-top: 1px solid var(--border-color); margin-top: 5px; padding-top: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 600; font-size: 11px; color: #fff;">Total Est. Yield (12.0% APY)</span>
+            <strong style="font-size: 1.1rem; color: var(--gold); font-family: var(--font-mono);" id="sim-total-yield">$12,000 USDC / yr</strong>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border-radius: 6px; padding: 10px; text-align: center; font-size: 10px; line-height: 1.4;">
+            Est. 5-Year Cumulative ROI Payout: <strong style="color: var(--accent-green);" id="sim-5yr-roi">$60,000 USDC</strong>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -294,7 +353,131 @@
       window.addEventListener('beforeunload', () => {
         if (synth) synth.cancel();
       });
+
+      // ROI Simulator Logic
+      const simInputVal = document.getElementById('sim-input-val');
+      const simSlider = document.getElementById('sim-leverage-slider');
+      const simPrefYield = document.getElementById('sim-pref-yield');
+      const simBoostYield = document.getElementById('sim-boost-yield');
+      const simTotalYield = document.getElementById('sim-total-yield');
+      const simPrefBar = document.getElementById('sim-pref-bar');
+      const simBoostBar = document.getElementById('sim-boost-bar');
+      const sim5yrRoi = document.getElementById('sim-5yr-roi');
+
+      function updateSimulator() {
+        if (!simSlider) return;
+        const val = parseFloat(simSlider.value);
+        simInputVal.textContent = `$${val.toLocaleString()}`;
+
+        const pref = val * 0.095;
+        const boost = val * 0.025;
+        const total = val * 0.120;
+        const cumulative5yr = total * 5;
+
+        simPrefYield.textContent = `$${pref.toLocaleString(undefined, {maximumFractionDigits: 0})} USDC / yr`;
+        simBoostYield.textContent = `$${boost.toLocaleString(undefined, {maximumFractionDigits: 0})} USDC / yr`;
+        simTotalYield.textContent = `$${total.toLocaleString(undefined, {maximumFractionDigits: 0})} USDC / yr`;
+        sim5yrRoi.textContent = `$${cumulative5yr.toLocaleString(undefined, {maximumFractionDigits: 0})} USDC`;
+
+        // Calculate visual bar percentages
+        const prefPct = (pref / total) * 100;
+        const boostPct = (boost / total) * 100;
+        if (simPrefBar) simPrefBar.style.width = `${prefPct}%`;
+        if (simBoostBar) simBoostBar.style.width = `${boostPct}%`;
+      }
+
+      if (simSlider) {
+        simSlider.addEventListener('input', updateSimulator);
+        updateSimulator();
+      }
+
+      // Wallet Connection Simulation Logic
+      const connectBtn = document.getElementById('connect-wallet-btn');
+      const walletModal = document.getElementById('wallet-modal');
+      const closeBtn = document.getElementById('modal-close-btn');
+      const signBtn = document.getElementById('modal-sign-btn');
+      const statusLog = document.getElementById('modal-status-log');
+
+      if (connectBtn && walletModal) {
+        connectBtn.addEventListener('click', () => {
+          walletModal.classList.add('show');
+          statusLog.innerHTML = `<div style="color: var(--accent-purple);">[HANDSHAKE INITIATED] Connecting via WalletConnect protocol...</div>`;
+          signBtn.disabled = false;
+          signBtn.textContent = 'Initiate Signature Request';
+        });
+
+        const closeModal = () => {
+          walletModal.classList.remove('show');
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        walletModal.addEventListener('click', (e) => {
+          if (e.target === walletModal) closeModal();
+        });
+
+        signBtn.addEventListener('click', () => {
+          signBtn.disabled = true;
+          signBtn.textContent = 'Signing Multi-Sig Block...';
+          
+          let step = 0;
+          const steps = [
+            { text: '📡 Querying BitGo Enterprise Rules Registry...', color: 'var(--text-secondary)' },
+            { text: '🔒 Policy verified: "KiwiMulligan1_JV_Recovery_Fence" matches.', color: 'var(--accent-green)' },
+            { text: '🔑 Requesting Co-Signer Signature from Safeguard Vault...', color: 'var(--text-secondary)' },
+            { text: '✍️ Signature successfully appended. Block Hash: 0x4E57...Fa13', color: 'var(--accent-cyan)' },
+            { text: '🔌 Connection Established. Sub-Account: UnyKorn_Escrow_Primary', color: 'var(--gold)' }
+          ];
+
+          const interval = setInterval(() => {
+            if (step < steps.length) {
+              const div = document.createElement('div');
+              div.style.color = steps[step].color;
+              div.style.marginBottom = '4px';
+              div.textContent = steps[step].text;
+              statusLog.appendChild(div);
+              statusLog.scrollTop = statusLog.scrollHeight;
+              step++;
+            } else {
+              clearInterval(interval);
+              setTimeout(() => {
+                closeModal();
+                connectBtn.innerHTML = `<i data-lucide="check-circle" style="width:13px; height:13px;"></i> Connected: 0x4E57...Fa13`;
+                connectBtn.style.color = 'var(--accent-green)';
+                connectBtn.style.borderColor = 'var(--accent-green)';
+                connectBtn.style.background = 'rgba(0, 245, 160, 0.05)';
+                if (window.lucide) window.lucide.createIcons();
+              }, 1200);
+            }
+          }, 1000);
+        });
+      }
     });
   </script>
+
+  <!-- Wallet Connection Simulation Modal -->
+  <div class="modal-overlay" id="wallet-modal">
+    <div class="modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 15px;">
+        <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="shield-alert" style="color: var(--gold); width: 18px; height: 18px;"></i>
+          BitGo Multi-Sig Signature Gateway
+        </h4>
+        <button id="modal-close-btn" style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.25rem;">&times;</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 11px;">
+        <p style="color: var(--text-secondary); line-height: 1.4; margin: 0;">
+          Establishing secure, bankruptcy-remote connection to Unykorn's institutional private custody vaults. Approve multi-sig policies to proceed.
+        </p>
+
+        <!-- Status log -->
+        <div id="modal-status-log" style="background: #010409; border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; font-family: var(--font-mono); height: 140px; overflow-y: auto; color: var(--accent-cyan); display: flex; flex-direction: column; gap: 6px;">
+          <div style="color: var(--text-muted);">Awaiting handshake trigger...</div>
+        </div>
+
+        <button id="modal-sign-btn" class="btn-primary" style="padding: 10px; border-radius: 6px; font-weight: bold; margin-top: 5px;">Initiate Signature Request</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

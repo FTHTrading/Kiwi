@@ -27,8 +27,13 @@
         <li><a class="nav-link" id="nav-ledger">Governance Ledger</a></li>
         <li><a href="investor.html" target="_blank" class="nav-link" style="color: var(--gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 4px 10px; border-radius: 4px; font-weight: 600; display: flex; align-items: center; gap: 4px;">Investor Pitch ↗</a></li>
       </ul>
-      <div style="font-size: 11px; color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 6px 14px; border-radius: 20px; font-weight: 600; background: rgba(0, 242, 254, 0.05);" id="top-status-indicator">
-        Compliance Block: Gate Active
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button id="connect-wallet-btn" class="btn" style="background: rgba(212,175,55,0.1); border: 1px solid var(--gold); color: var(--gold); padding: 6px 14px; border-radius: 20px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: var(--transition);">
+          <i data-lucide="wallet" style="width: 13px; height: 13px;"></i> Connect Wallet
+        </button>
+        <div style="font-size: 11px; color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 6px 14px; border-radius: 20px; font-weight: 600; background: rgba(0, 242, 254, 0.05);" id="top-status-indicator">
+          Compliance Block: Gate Active
+        </div>
       </div>
     </div>
   </nav>
@@ -373,6 +378,43 @@ System ready. Awaiting deal payload...</div>
               </p>
             </div>
 
+          </div>
+
+          <!-- Solana Token-2022 Compliance Hook Simulator -->
+          <div style="border-top: 1px solid var(--border-color); margin-top: 20px; padding-top: 20px;">
+            <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff; margin: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="shield-check" style="color: var(--accent-green);"></i> On-Chain Solana Token-2022 Transfer Hook Audit
+            </h4>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin: 0; margin-bottom: 15px;">
+              Simulate secondary market token transfers. Unykorn's on-chain Token-2022 Transfer Hook intercepts every transfer request to verify KYC/AML whitelist credentials prior to block execution.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 20px;">
+              <!-- Form inputs -->
+              <div style="display: flex; flex-direction: column; gap: 12px; background: rgba(0,0,0,0.15); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px;">
+                <div class="form-group">
+                  <label for="hook-sender" style="font-size: 10px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Sender Wallet Address</label>
+                  <input type="text" id="hook-sender" class="form-control" style="font-size: 10px; font-family: var(--font-mono); background:#030712; border:1px solid var(--border-color); border-radius:4px; padding:6px; color:#fff;" value="0x4E574939D460d284B5D990646D4aeaEF2D49Fa13">
+                </div>
+                <div class="form-group">
+                  <label for="hook-receiver" style="font-size: 10px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Receiver Wallet Address</label>
+                  <input type="text" id="hook-receiver" class="form-control" style="font-size: 10px; font-family: var(--font-mono); background:#030712; border:1px solid var(--border-color); border-radius:4px; padding:6px; color:#fff;" placeholder="Enter recipient wallet address (e.g. 0x8ace...Ac7A)">
+                </div>
+                <div class="form-group">
+                  <label for="hook-amount" style="font-size: 10px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Transfer Amount (x402 Tokens)</label>
+                  <input type="number" id="hook-amount" class="form-control" style="font-size: 10px; font-family: var(--font-mono); background:#030712; border:1px solid var(--border-color); border-radius:4px; padding:6px; color:#fff;" value="5000">
+                </div>
+                <button id="hook-simulate-btn" class="btn-primary" style="padding: 8px; border-radius: 6px; font-weight: bold; font-size: 11px;">Audit & Execute Transfer</button>
+              </div>
+
+              <!-- Console logs -->
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="font-size: 11px; color: var(--text-secondary);">On-Chain Execution Trace</div>
+                <div id="hook-console-log" class="hook-console">
+                  <div style="color: var(--text-muted);">System ready. Enter sender/receiver addresses to audit...</div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -794,6 +836,32 @@ System ready. Awaiting deal payload...</div>
   </div>
 
   <div class="toast" id="toast-notif">Wager placed successfully!</div>
+
+  <!-- Wallet Connection Simulation Modal -->
+  <div class="modal-overlay" id="wallet-modal">
+    <div class="modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 15px;">
+        <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="shield-alert" style="color: var(--gold); width: 18px; height: 18px;"></i>
+          BitGo Multi-Sig Signature Gateway
+        </h4>
+        <button id="modal-close-btn" style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.25rem;">&times;</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 11px;">
+        <p style="color: var(--text-secondary); line-height: 1.4; margin: 0;">
+          Establishing secure, bankruptcy-remote connection to Unykorn's institutional private custody vaults. Approve multi-sig policies to proceed.
+        </p>
+
+        <!-- Status log -->
+        <div id="modal-status-log" style="background: #010409; border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; font-family: var(--font-mono); height: 140px; overflow-y: auto; color: var(--accent-cyan); display: flex; flex-direction: column; gap: 6px;">
+          <div style="color: var(--text-muted);">Awaiting handshake trigger...</div>
+        </div>
+
+        <button id="modal-sign-btn" class="btn-primary" style="padding: 10px; border-radius: 6px; font-weight: bold; margin-top: 5px;">Initiate Signature Request</button>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
