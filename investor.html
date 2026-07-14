@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⛳ Kiwi's Mulligan 1 — Investor Pitch Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Background glows -->
+  <div class="bg-glows">
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span>⛳ UnyKorn | Kiwi's Mulligan</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">JV Cockpit</a></li>
+        <li><a class="nav-link active">Public Pitch Portal</a></li>
+      </ul>
+      <div style="font-size: 11px; color: var(--accent-purple); border: 1px solid var(--accent-purple); padding: 6px 14px; border-radius: 20px; font-weight: 600; background: rgba(223, 184, 108, 0.05);">
+        SEC Reg D 506(c)
+      </div>
+    </div>
+  </nav>
+
+  <div style="max-width: 1400px; margin: 2rem auto; padding: 0 2rem; width: 100%; flex: 1; display: flex; flex-direction: column; gap: 2rem;">
+    
+    <!-- Hero Header -->
+    <header class="card" style="display: flex; flex-direction: column; gap: 15px; border-left: 4px solid var(--accent-purple); background: linear-gradient(135deg, rgba(14,25,17,0.6) 0%, rgba(4,9,6,0.9) 100%);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <span style="font-size: 11px; background: rgba(223,184,108,0.1); color: var(--accent-purple); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-family: var(--font-mono);">#KiwisMulligan1</span>
+          <h1 style="font-family: var(--font-display); font-size: 2.25rem; font-weight: 800; color: #fff; margin-top: 8px; margin-bottom: 4px;">Kiwi's Mulligan 1, LLC</h1>
+          <h2 style="font-size: 1.1rem; color: var(--text-secondary); font-weight: 500;">UnyKorn Preferred Real-World Asset (RWA) Joint-Venture Offering</h2>
+        </div>
+        
+        <button id="pitch-audio-play" class="btn" style="background: rgba(0, 230, 118, 0.1); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); display: flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; font-family: var(--font-sans); transition: var(--transition);">
+          <i data-lucide="play" style="width: 16px; height: 16px;"></i> Listen Pitch Deck
+        </button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; max-width: 1000px;">
+        Fine Mulligans Inc. and UnyKorn LLC are raising <strong>$27,000,000 USD</strong> in private tokenized preferred equity under SEC Regulation D 506(c). Proceeds directly fund the development of Alpharetta's premier experiential golf simulator & entertainment venue, operated by Bobby Jones Links.
+      </p>
+    </header>
+
+    <!-- Key Metrics Grid -->
+    <section style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 11px; color: var(--text-secondary);">Raise Target</div>
+        <div style="font-size: 1.75rem; font-weight: 800; color: #fff; font-family: var(--font-mono); margin-top: 6px;">$27.0M</div>
+        <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Preferred Equity Placement</div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 11px; color: var(--text-secondary);">Preferred APY Return</div>
+        <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-mono); margin-top: 6px;">9.5% APY</div>
+        <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">USDC Distributed Monthly via x402</div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 11px; color: var(--text-secondary);">Asset Valuation</div>
+        <div style="font-size: 1.75rem; font-weight: 800; color: #fff; font-family: var(--font-mono); margin-top: 6px;">$48.0M</div>
+        <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Independent appraisal & Entitlements</div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 11px; color: var(--text-secondary);">Minimum Subscription</div>
+        <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent-purple); font-family: var(--font-mono); margin-top: 6px;">$100,000</div>
+        <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Accredited Investors Only</div>
+      </div>
+    </section>
+
+    <!-- Side-by-Side Video Players -->
+    <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      
+      <!-- Video 1 -->
+      <div class="card" style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.1rem; color: #fff; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="monitor-play" style="color: var(--accent-cyan); width: 18px; height: 18px;"></i>
+          Experiential Simulators Tour (Golf & Baseball)
+        </h3>
+        <div style="position: relative; border-radius: 8px; overflow: hidden; background: #000; border: 1px solid var(--border-color); aspect-ratio: 16/9;">
+          <video src="assets/Golf and Baseball Kiwis (2).mp4" controls style="width: 100%; height: 100%; object-fit: contain;"></video>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
+          A walkthrough of the state-of-the-art interactive golf bays and multi-sport simulators designed for families, corporate events, and league play.
+        </p>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="card" style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.1rem; color: #fff; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="video" style="color: var(--accent-cyan); width: 18px; height: 18px;"></i>
+          Venue Development Drone & Architectural Render
+        </h3>
+        <div style="position: relative; border-radius: 8px; overflow: hidden; background: #000; border: 1px solid var(--border-color); aspect-ratio: 16/9;">
+          <video src="assets/Kiwis Mulligans Video.mp4" controls style="width: 100%; height: 100%; object-fit: contain;"></video>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
+          Drone flyover scans of the physical property site layout, zoning limits, and conceptual 3D structural render of the main building and dining decks.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- Document Vault & Download Card -->
+    <section class="card" style="display: flex; flex-direction: column; gap: 15px; background: linear-gradient(180deg, rgba(223, 184, 108, 0.02) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(223, 184, 108, 0.15);">
+      <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--gold); border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin: 0; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="folder-lock"></i> Secured RWA Document Vault
+      </h3>
+      <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
+        Institutional diligence files are encrypted and locked. Click below to view and trigger secure local downloads.
+      </p>
+      
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 5px;">
+        <a href="assets/KiwisMulligan1_MNDA_UnyKorn.docx" download class="card" style="display: flex; align-items: center; gap: 12px; text-decoration: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); transition: var(--transition); cursor: pointer;">
+          <i data-lucide="file-text" style="color: var(--accent-purple); width: 24px; height: 24px; flex-shrink: 0;"></i>
+          <div>
+            <strong style="display: block; color: #fff; font-size: 0.85rem;">Mutual NDA Agreement</strong>
+            <span style="font-size: 10px; color: var(--text-muted);">Georgia Jurisdiction • 12 KB DOCX</span>
+          </div>
+        </a>
+
+        <a href="assets/KiwisMulligan1_IRL_DueDiligence_Request_UnyKorn.docx" download class="card" style="display: flex; align-items: center; gap: 12px; text-decoration: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); transition: var(--transition); cursor: pointer;">
+          <i data-lucide="list-checks" style="color: var(--accent-cyan); width: 24px; height: 24px; flex-shrink: 0;"></i>
+          <div>
+            <strong style="display: block; color: #fff; font-size: 0.85rem;">Information Request List</strong>
+            <span style="font-size: 10px; color: var(--text-muted);">Unykorn Diligence IRL • 13 KB DOCX</span>
+          </div>
+        </a>
+
+        <a href="assets/Kiwi Mulligan - IP (1) july 13.pdf" target="_blank" class="card" style="display: flex; align-items: center; gap: 12px; text-decoration: none; background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); transition: var(--transition); cursor: pointer;">
+          <i data-lucide="file-digit" style="color: var(--accent-green); width: 24px; height: 24px; flex-shrink: 0;"></i>
+          <div>
+            <strong style="display: block; color: #fff; font-size: 0.85rem;">Full Investor Deck PDF</strong>
+            <span style="font-size: 10px; color: var(--text-muted);">Compiled July 13 • 1.2 MB PDF</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Financial Model & Projections Breakdown -->
+    <section class="card" style="display: flex; flex-direction: column; gap: 20px;">
+      <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin: 0;">
+        📊 5-Year Financial Projections (Summary)
+      </h3>
+      <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
+        Detailed consolidated cash-flow projections modeling venue operations, bay hire rates, dining revenues, opex escalations (5% YoY opex ceiling), and dynamic EBITDA margins.
+      </p>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--border-color); color: var(--gold);">
+              <th style="padding: 10px 5px;">Line Item Category</th>
+              <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 1</th>
+              <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 2</th>
+              <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 3</th>
+              <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 4</th>
+              <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+              <td style="padding: 10px 5px; color: #fff;"><strong>Total Revenue (8 lines)</strong></td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$14,700,000</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$15,435,000</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$16,206,750</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$17,017,088</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$17,867,942</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+              <td style="padding: 10px 5px; color: var(--text-secondary);">Operating Expenses (9 lines)</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$9,996,000</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$10,495,800</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$11,020,590</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$11,571,620</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$12,150,201</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+              <td style="padding: 10px 5px; color: #fff;"><strong>EBITDA Earnings</strong></td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: #fff;"><strong>$4,704,000</strong></td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: #fff;"><strong>$4,939,200</strong></td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: #fff;"><strong>$5,186,160</strong></td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: #fff;"><strong>$5,445,468</strong></td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: #fff;"><strong>$5,717,741</strong></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 5px; color: var(--text-secondary);">EBITDA Margin</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+              <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Operational Operations & Governance -->
+    <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <div class="card" style="display: flex; flex-direction: column; gap: 10px;">
+        <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 6px;">
+          👥 Bobby Jones Links Operations
+        </h4>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
+          UnyKorn has locked in Bobby Jones Links, an elite hospitality operator managing over 35 premier courses and sports club facilities in the Southeast. They provide:
+        </p>
+        <ul style="font-size: 0.75rem; color: var(--text-secondary); padding-left: 15px; line-height: 1.4;">
+          <li>Full staff vetting and general manager recruitment.</li>
+          <li>F&B procurement, kitchen design, and vendor cost audits.</li>
+          <li>Membership software integration and golf clinic programs.</li>
+        </ul>
+      </div>
+      
+      <div class="card" style="display: flex; flex-direction: column; gap: 10px;">
+        <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 6px;">
+          🏦 Financial Strategy & Underwriting Advisors
+        </h4>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
+          The financial structure is verified by seasoned advisors:
+        </p>
+        <ul style="font-size: 0.75rem; color: var(--text-secondary); padding-left: 15px; line-height: 1.4;">
+          <li><strong>Niraj Sheth</strong>, leading capital restructuring and joint venture underwriting.</li>
+          <li><strong>Cherry Bekaert LLP</strong>, managing corporate tax strategies, real estate depreciation schedules, and SEC disclosures.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <footer style="border-top: 1px solid var(--border-color); padding: 20px; text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 2rem; background: rgba(0,0,0,0.25);">
+    © 2026 Fine Mulligans Inc. & UnyKorn LLC. All rights reserved. Private Offering Memorandum available on request.
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) window.lucide.createIcons();
+
+      // Audio Pitch Tour TTS
+      const playBtn = document.getElementById('pitch-audio-play');
+      const synth = window.speechSynthesis;
+      let isPlaying = false;
+
+      const pitchText = `
+        Welcome to Kiwi's Mulligan 1 preferred equity joint venture pitch portal. 
+        UnyKorn LLC is raising twenty-seven million dollars in private tokenized preferred equity under SEC Regulation D five hundred and six C. 
+        Proceeds directly fund the development of our experiential golf and entertainment venue in Alpharetta, Georgia. 
+        The venue boasts a pre-revenue physical asset valuation of forty-eight million dollars, supported by independent entitlements. 
+        Bobby Jones Links is locked in to manage all operations. 
+        Our five-year financial projection targets an annual revenue of fourteen point seven million dollars in Year one, with a thirty-two percent EBITDA margin floor.
+        Dividends route dynamically on-chain as a preferred nine point five percent APY yield in USDC monthly.
+        Feel free to download our Mutual NDA, diligence request list, and complete PDF pitch deck directly from the document vault below.
+      `;
+
+      playBtn.addEventListener('click', () => {
+        if (!synth) {
+          alert('Speech synthesis not supported in this browser.');
+          return;
+        }
+
+        if (isPlaying) {
+          synth.cancel();
+          isPlaying = false;
+          playBtn.innerHTML = '<i data-lucide="play" style="width: 16px; height: 16px;"></i> Listen Pitch Deck';
+        } else {
+          isPlaying = true;
+          playBtn.innerHTML = '<i data-lucide="square" style="width: 16px; height: 16px;"></i> Stop Listening';
+          
+          const utterance = new SpeechSynthesisUtterance(pitchText);
+          const voices = synth.getVoices();
+          const englishVoice = voices.find(v => v.lang.includes('en'));
+          if (englishVoice) utterance.voice = englishVoice;
+          utterance.rate = 1.05;
+          
+          utterance.onend = () => {
+            isPlaying = false;
+            playBtn.innerHTML = '<i data-lucide="play" style="width: 16px; height: 16px;"></i> Listen Pitch Deck';
+            if (window.lucide) window.lucide.createIcons();
+          };
+
+          synth.speak(utterance);
+        }
+
+        if (window.lucide) window.lucide.createIcons();
+      });
+
+      window.addEventListener('beforeunload', () => {
+        if (synth) synth.cancel();
+      });
+    });
+  </script>
+</body>
+</html>
