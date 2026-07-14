@@ -1,23 +1,23 @@
 :root {
-  --bg-main: #040906;
-  --bg-card: rgba(14, 25, 17, 0.45);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --text-primary: #f3f4f6;
-  --text-secondary: #a3a8a3;
-  --text-muted: #6b726b;
+  --bg-main: #0b132b;
+  --bg-card: #1c2541;
+  --border-color: #3a506b;
+  --text-primary: #ffffff;
+  --text-secondary: #8d99ae;
+  --text-muted: #5c677d;
   
-  /* Curated Color Tokens: Country Club Green & Champagne Gold */
+  /* Curated Color Tokens: Institutional Navy, Slate & Gold */
   --accent-cyan: #00e676;
-  --accent-purple: #dfb86c;
+  --accent-purple: #d4af37;
   --accent-green: #69f0ae;
   --accent-red: #ff5252;
-  --gold: #dfb86c;
+  --gold: #d4af37;
   
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: 'Outfit', sans-serif;
   --font-mono: 'Fira Code', monospace;
   
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -52,7 +52,7 @@ body {
   right: -10%;
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
   filter: blur(80px);
 }
 
@@ -62,7 +62,7 @@ body {
   left: -10%;
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle, rgba(223, 184, 108, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(58, 80, 107, 0.05) 0%, transparent 70%);
   filter: blur(80px);
 }
 

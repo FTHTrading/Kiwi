@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DonKAI • Macro Event Prediction Exchange</title>
+  <title>⛳ UnyKorn × Kiwi's Mulligan Joint Venture Terminal</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,23 +14,21 @@
   <div class="bg-glows">
     <div class="glow-1"></div>
     <div class="glow-2"></div>
-  </div>
-
-  <!-- Navbar -->
+  </div>  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
         <span>⛳ UnyKorn | Kiwi's Mulligan</span>
       </div>
       <ul class="nav-links">
-        <li><a class="nav-link active" id="nav-cockpit">JV Cockpit</a></li>
-        <li><a class="nav-link" id="nav-yield">Fractions & Yield</a></li>
-        <li><a class="nav-link" id="nav-audit">Custody Audit</a></li>
-        <li><a class="nav-link" id="nav-hedging">Hedging Desk</a></li>
-        <li><a href="investor.html" target="_blank" class="nav-link" style="color: var(--gold); border: 1px solid rgba(223, 184, 108, 0.3); padding: 4px 10px; border-radius: 4px; font-weight: 600; display: flex; align-items: center; gap: 4px;">Investor Pitch ↗</a></li>
+        <li><a class="nav-link active" id="nav-custody">Custody & Compliance</a></li>
+        <li><a class="nav-link" id="nav-yield">x402 Yield Engine</a></li>
+        <li><a class="nav-link" id="nav-hedging">Hedging & Staking</a></li>
+        <li><a class="nav-link" id="nav-ledger">Governance Ledger</a></li>
+        <li><a href="investor.html" target="_blank" class="nav-link" style="color: var(--gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 4px 10px; border-radius: 4px; font-weight: 600; display: flex; align-items: center; gap: 4px;">Investor Pitch ↗</a></li>
       </ul>
-      <div style="font-size: 11px; color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 6px 14px; border-radius: 20px; font-weight: 600; background: rgba(0, 242, 254, 0.05);">
-        Unykorn ECN: Active
+      <div style="font-size: 11px; color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 6px 14px; border-radius: 20px; font-weight: 600; background: rgba(0, 242, 254, 0.05);" id="top-status-indicator">
+        Compliance Block: Gate Active
       </div>
     </div>
   </nav>
@@ -61,90 +59,376 @@
         </div>
       </section>
 
-      <!-- Exchange View Wrapper -->
-      <div id="exchange-view" class="tab-content-panel" style="display: none;">
+      <!-- MODULE 1 & 2: CUSTODY & COMPLIANCE VIEW -->
+      <div id="custody-view" class="tab-content-panel" style="display: flex; flex-direction: column; gap: 2rem; width: 100%;">
+        
+        <!-- BitGo Enterprise Policy Card -->
+        <section class="card" id="bitgo-view" style="display: flex; flex-direction: column; gap: 15px;">
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="shield" style="color: var(--gold);"></i> BitGo Enterprise Custody & Policy Guard
+            </h3>
+            <span style="font-size: 10px; background: rgba(212,175,55,0.1); color: var(--gold); border: 1px solid var(--gold); padding: 2px 8px; border-radius: 10px; font-weight: bold;">Sub-Org: #KiwiMulligan1_JV_Portfolio</span>
+          </div>
 
-        <!-- Active Event Markets -->
-        <section>
-        <h2 class="markets-title">Active Event Contracts</h2>
-        <div class="markets-grid">
+          <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px;">
+            
+            <!-- Policy Specifications -->
+            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 11px;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color);">
+                  <div style="color: var(--text-secondary); margin-bottom: 4px;">Qualified Custody Status</div>
+                  <strong style="color: var(--accent-green);">Active cold vault</strong>
+                  <div style="color: var(--text-muted); font-size: 9px; margin-top: 3px;">BitGo Trust Company N.A. (NYS-chartered)</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color);">
+                  <div style="color: var(--text-secondary); margin-bottom: 4px;">Key Custody Structure</div>
+                  <strong style="color: #fff;">3-of-5 Multi-Sig Matrix</strong>
+                  <div style="color: var(--text-muted); font-size: 9px; margin-top: 3px;">Unykorn Admin, Co-Sponsor, Recovery Escrows</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color);">
+                  <div style="color: var(--text-secondary); margin-bottom: 4px;">Asset Insurance Wrap</div>
+                  <strong style="color: var(--gold);">$250,000,000.00</strong>
+                  <div style="color: var(--text-muted); font-size: 9px; margin-top: 3px;">Lloyd's of London crime Syndicate coverage</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color);">
+                  <div style="color: var(--text-secondary); margin-bottom: 4px;">Cold Storage Staking</div>
+                  <strong style="color: var(--accent-cyan);">4.5% APR Reserve Staking</strong>
+                  <div style="color: var(--text-muted); font-size: 9px; margin-top: 3px;">Native delegated validator offsets system fees</div>
+                </div>
+              </div>
+
+              <!-- Whitelisting & Velocity policies -->
+              <div style="background: rgba(0,0,0,0.15); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 8px;">
+                <h4 style="margin: 0; color: #fff; font-size: 0.85rem; font-family: var(--font-display);">Advanced Policy Enforcement Rules</h4>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-secondary);">Velocity limits:</span>
+                  <strong style="color: #fff;">$2,000,000 / 24 hours (48h admin timelock override)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-secondary);">Address Whitelists:</span>
+                  <strong style="color: #fff;">Castle Placement Escrow, Title Escrow Alpharetta</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audit Logs downloads -->
+            <div style="background: rgba(212,175,55,0.02); border: 1px solid rgba(212,175,55,0.1); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+              <h4 style="margin: 0; color: var(--gold); font-size: 0.85rem; font-family: var(--font-display); text-align: center;">Compliance Audit Export</h4>
+              <p style="font-size: 10px; color: var(--text-secondary); text-align: center; line-height: 1.4; margin: 0;">
+                Auditor-ready reports containing cryptographically signed wallet ledger transaction listings.
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <button class="btn" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); color: #fff; cursor: pointer; padding: 8px; border-radius: 6px; font-size: 10px;" onclick="alert('SOC 1 Type II audit logs downloaded successfully.')">SOC 1 Type II Audit Log</button>
+                <button class="btn" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); color: #fff; cursor: pointer; padding: 8px; border-radius: 6px; font-size: 10px;" onclick="alert('SOC 2 Type II audit logs downloaded successfully.')">SOC 2 Type II Audit Log</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- JV Ingestion Cockpit Card -->
+        <section class="card" id="cockpit-view" style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+              🏢 Multi-Agent JV Automation Pipeline
+            </h3>
+            <span style="font-size: 11px; background: var(--accent-purple); color: #fff; padding: 4px 10px; border-radius: 12px; font-weight: 700; font-family: var(--font-mono);">#KiwisMulligan1</span>
+          </div>
           
-          <!-- Market 1 -->
-          <div class="card market-card" id="market-fit21">
-            <div>
-              <div class="market-header">
-                <span class="market-badge">REGULATORY LEGISLATION</span>
-                <span style="font-size: 11px; color: var(--text-secondary); font-family: var(--font-mono);">Event ID: FIT21-SENATE</span>
-              </div>
-              <h3 class="market-title">Will the FIT21 Act pass the Senate before Q4 2026?</h3>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 5px;">
+            Automate the verification, compliance vetting, custodian vault allocation, and tokenized preferred equity deployment of corporate JV proposals.
+          </p>
+
+          <!-- Pipeline Steps indicators -->
+          <div style="display: flex; gap: 10px; justify-content: space-between; margin-bottom: 10px;">
+            <div class="pipeline-step active" id="p-step-1" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--accent-cyan); background: rgba(0, 242, 254, 0.03); text-align: center; font-size: 11px; transition: var(--transition);">
+              <strong style="display: block; color: var(--accent-cyan);">AGENT 1</strong>
+              <span style="color: #fff;">Underwriting & Vetting</span>
             </div>
-            <div class="market-odds-row">
-              <button class="odds-btn yes active" data-market="fit21" data-side="YES">
-                <span>YES</span>
-                <span id="fit21-yes-price" style="font-family: var(--font-mono);">$0.65</span>
-              </button>
-              <button class="odds-btn no" data-market="fit21" data-side="NO">
-                <span>NO</span>
-                <span id="fit21-no-price" style="font-family: var(--font-mono);">$0.35</span>
-              </button>
+            <div class="pipeline-step" id="p-step-2" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.01); text-align: center; font-size: 11px; transition: var(--transition);">
+              <strong style="display: block; color: var(--text-secondary);">AGENT 2</strong>
+              <span style="color: #fff;">BitGo Enterprise Policy</span>
+            </div>
+            <div class="pipeline-step" id="p-step-3" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.01); text-align: center; font-size: 11px; transition: var(--transition);">
+              <strong style="display: block; color: var(--text-secondary);">AGENT 3</strong>
+              <span style="color: #fff;">x402 RWA Tokenization</span>
             </div>
           </div>
 
-          <!-- Market 2 -->
-          <div class="card market-card" id="market-fedrate">
-            <div>
-              <div class="market-header">
-                <span class="market-badge">MONETARY POLICY</span>
-                <span style="font-size: 11px; color: var(--text-secondary); font-family: var(--font-mono);">Event ID: FED-RATE-SEP</span>
+          <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px;">
+            
+            <!-- Column 1: Deal Ingestion -->
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div class="form-group">
+                <label for="cockpit-payload" style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Raw Deal Payload (Emails & Deck Context)</label>
+                <textarea id="cockpit-payload" class="form-control" style="height: 220px; font-family: var(--font-mono); font-size: 10px; line-height: 1.4; background: #030712; border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; color: var(--text-secondary); width: 100%; resize: none;">[Ingested Proposal: #KiwisMulligan1]
+Deal: Kiwi's Mulligan Experiential Golf bay and Entertainment Venue (Alpharetta, GA).
+Lead Sponsor: Young Woo, Paresh Govan (Fine Mulligans Inc.).
+Raise Target: $27,000,000 USD via Castle Placement Private Placement ECN.
+Entity Val: $48,000,000 pre-revenue valuation.
+Vulnerability Check: A halted Reg A+ filing exists. Audit records reveal a $1.2M historical debt liability, and a core seed capital associate is flagged under SEC Rule 506(d) as a disqualifying Bad Actor.</textarea>
               </div>
-              <h3 class="market-title">Will the Fed cut the Target Funds Rate in September 2026?</h3>
+              
+              <button class="btn-primary" id="run-pipeline-btn" style="padding: 10px; border-radius: 8px; font-weight: bold;">Execute AI Pipeline</button>
+              <button class="btn" id="excise-btn" style="display: none; background: rgba(0, 245, 160, 0.1); border: 1px solid var(--accent-green); color: var(--accent-green); padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: var(--transition);">✂️ Excise Bad Actor & Debt</button>
             </div>
-            <div class="market-odds-row">
-              <button class="odds-btn yes" data-market="fedrate" data-side="YES">
-                <span>YES</span>
-                <span id="fedrate-yes-price" style="font-family: var(--font-mono);">$0.50</span>
-              </button>
-              <button class="odds-btn no" data-market="fedrate" data-side="NO">
-                <span>NO</span>
-                <span id="fedrate-no-price" style="font-family: var(--font-mono);">$0.50</span>
-              </button>
-            </div>
-          </div>
 
-        </div>
-      </section>
+            <!-- Column 2: Terminal Console -->
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="font-size: 11px; color: var(--text-secondary);">Pipeline Terminal Output</div>
+              <div id="cockpit-terminal" style="flex: 1; background: #010409; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-mono); font-size: 10px; padding: 12px; height: 260px; overflow-y: auto; color: var(--accent-cyan); white-space: pre-wrap;">Unykorn Cockpit Shell v1.0.0
+System ready. Awaiting deal payload...</div>
+            </div>
+
+          </div>
+        </section>
       </div>
 
-      <!-- Audit View Wrapper (Custody Audit + Ledger Blocks) -->
-      <div id="audit-view" class="tab-content-panel" style="display: none; flex-direction: column; gap: 2rem;">
-        
-        <!-- Custody Audit / Insurance Section -->
-        <section class="card" id="audit-card-panel">
-          <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">🛡️ Real-Time Custody Audit Ledger</h3>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div>
-              <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">Unykorn Master Omnibus Wallet</div>
-              <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green); font-family: var(--font-mono);" id="audit-omnibus-balance">$1,115,000.00 USDC</div>
-              <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px; font-family: var(--font-mono);">Address: 0xd6d5132e3a7f379acfe4bcd0130cc9e77884692a</div>
+      <!-- MODULE 3: x402 YIELD ENGINE VIEW -->
+      <div id="yield-view" class="tab-content-panel" style="display: none; flex-direction: column; gap: 2rem; width: 100%;">
+        <section class="card" style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="percent" style="color: var(--accent-cyan);"></i> x402 Tokenized Yield Performance Dashboard
+            </h3>
+            <span style="font-size: 10px; background: rgba(0, 230, 118, 0.1); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 2px 8px; border-radius: 10px; font-weight: bold;">POS Connected</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+            <div style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
+              <div style="font-size: 10px; color: var(--text-secondary);">Total Venue Valuation</div>
+              <div style="font-size: 1.25rem; font-weight: 700; color: #fff; font-family: var(--font-mono); margin-top: 4px;">$48,000,000</div>
             </div>
-            <div>
-              <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">Lloyd's syndicate Insurance</div>
-              <div style="font-size: 1.5rem; font-weight: 700; color: var(--gold); font-family: var(--font-mono);">$250,000,000.00</div>
-              <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Regulated underwriter: BitGo Trust Company N.A.</div>
+            <div style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
+              <div style="font-size: 10px; color: var(--text-secondary);">Target Capital Raise</div>
+              <div style="font-size: 1.25rem; font-weight: 700; color: #fff; font-family: var(--font-mono); margin-top: 4px;">$27,000,000</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
+              <div style="font-size: 10px; color: var(--text-secondary);">Preferred Return Yield</div>
+              <div style="font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan); font-family: var(--font-mono); margin-top: 4px;">9.5% APY</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
+              <div style="font-size: 10px; color: var(--text-secondary);">Token Standard</div>
+              <div style="font-size: 1.25rem; font-weight: 700; color: var(--accent-purple); font-family: var(--font-mono); margin-top: 4px;">Solana Token-2022</div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px;">
+            
+            <!-- Column 1: Live POS Ticker Feed -->
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <h4 style="font-size: 0.9rem; color: #fff; font-family: var(--font-display); margin: 0;">⛳ Real-Time Venue Point-of-Sale (POS) Logs</h4>
+              <div id="pos-logs-container" style="background: #010409; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-mono); font-size: 10px; padding: 12px; height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+                <div style="color: var(--text-muted); text-align: center; margin-top: 80px;">Waiting for POS logs sweep...</div>
+              </div>
+            </div>
+
+            <!-- Column 2: x402 Yield Routing Information -->
+            <div style="display: flex; flex-direction: column; gap: 10px; background: rgba(212, 175, 55, 0.02); border: 1px solid rgba(212, 175, 55, 0.15); padding: 15px; border-radius: 8px;">
+              <h4 style="font-size: 0.9rem; color: var(--gold); font-family: var(--font-display); display: flex; align-items: center; gap: 6px; margin: 0;">
+                ⚙️ x402 Automated Yield Mechanism
+              </h4>
+              <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+                Unykorn's x402 protocol interfaces directly with Stripe/Toast POS terminals at the Alpharetta venue, programmatically routing F&B, membership, and bay hire revenues to the Solana contract:
+              </p>
+              <div style="font-size: 9px; font-family: var(--font-mono); background: rgba(0,0,0,0.3); padding: 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); line-height: 1.5; color: var(--accent-cyan);">
+                [Toast POS Register] ➔ [USD Gateway] ➔ [USDC Swap] ➔ [BitGo Child Escrow Wallet] ➔ [x402 Yield Smart Contract] ➔ [On-Chain Token Holders]
+              </div>
+              <p style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.3; margin: 0;">
+                *All yield payouts are issued in USDC/USDT on-chain monthly. Non-whitelisted addresses are restricted by Token-2022 metadata rules.
+              </p>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+      <!-- MODULE 4: HEDGING & STAKING VIEW -->
+      <div id="hedging-view" class="tab-content-panel" style="display: none; flex-direction: column; gap: 2rem; width: 100%;">
+        
+        <!-- Active Event Swaps -->
+        <section class="card" style="display: flex; flex-direction: column; gap: 15px;">
+          <h3 style="font-family: var(--font-display); font-size: 1.20rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="trending-up" style="color: var(--accent-cyan);"></i> Bilateral Event Swaps Clearing Desk
+          </h3>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+            Hedge development risk, construction milestones, and regional zoning permitting delay exposure. Swaps clear under CFTC de minimis rules.
+          </p>
+
+          <div class="markets-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            
+            <!-- Swap 1 -->
+            <div class="card market-card" id="market-fit21" style="background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); padding: 15px; border-radius: 8px;">
+              <div>
+                <div class="market-header" style="display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 8px;">
+                  <span class="market-badge" style="background: rgba(212,175,55,0.1); color: var(--gold); border: 1px solid var(--gold); padding: 2px 8px; border-radius: 10px; font-weight: bold;">ZONING PERMIT</span>
+                  <span style="font-family: var(--font-mono); color: var(--text-secondary);">Event ID: ZONING-ALPHARETTA</span>
+                </div>
+                <h3 class="market-title" style="font-size: 0.95rem; color: #fff; margin: 0; font-family: var(--font-sans); font-weight: 600; line-height: 1.4;">Will Zoning Permit A-404 be approved on first reading by Q4 2026?</h3>
+              </div>
+              <div class="market-odds-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
+                <button class="odds-btn yes active" data-market="fit21" data-side="YES" style="padding: 10px; font-family: var(--font-mono); border-radius: 6px; cursor: pointer;">
+                  <span>YES</span> <span id="fit21-yes-price" style="font-weight: bold; color: var(--accent-green); margin-left: 5px;">$0.65</span>
+                </button>
+                <button class="odds-btn no" data-market="fit21" data-side="NO" style="padding: 10px; font-family: var(--font-mono); border-radius: 6px; cursor: pointer;">
+                  <span>NO</span> <span id="fit21-no-price" style="font-weight: bold; color: var(--accent-red); margin-left: 5px;">$0.35</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Swap 2 -->
+            <div class="card market-card" id="market-fedrate" style="background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); padding: 15px; border-radius: 8px;">
+              <div>
+                <div class="market-header" style="display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 8px;">
+                  <span class="market-badge" style="background: rgba(212,175,55,0.1); color: var(--gold); border: 1px solid var(--gold); padding: 2px 8px; border-radius: 10px; font-weight: bold;">CONSTRUCTION</span>
+                  <span style="font-family: var(--font-mono); color: var(--text-secondary);">Event ID: GROUNDBREAKING-Q1-2027</span>
+                </div>
+                <h3 class="market-title" style="font-size: 0.95rem; color: #fff; margin: 0; font-family: var(--font-sans); font-weight: 600; line-height: 1.4;">Will Alpharetta venue groundbreaking occur before March 31, 2027?</h3>
+              </div>
+              <div class="market-odds-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
+                <button class="odds-btn yes" data-market="fedrate" data-side="YES" style="padding: 10px; font-family: var(--font-mono); border-radius: 6px; cursor: pointer;">
+                  <span>YES</span> <span id="fedrate-yes-price" style="font-weight: bold; color: var(--accent-green); margin-left: 5px;">$0.50</span>
+                </button>
+                <button class="odds-btn no" data-market="fedrate" data-side="NO" style="padding: 10px; font-family: var(--font-mono); border-radius: 6px; cursor: pointer;">
+                  <span>NO</span> <span id="fedrate-no-price" style="font-weight: bold; color: var(--accent-red); margin-left: 5px;">$0.50</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Fan Metric Staking desk -->
+        <section class="card" style="display: flex; grid-template-columns: 1fr 1fr; gap: 20px; flex-direction: row;">
+          <div style="flex: 1.2; display: flex; flex-direction: column; gap: 12px;">
+            <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="users" style="color: var(--gold);"></i> Community Fan Metric Staking Desk
+            </h3>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+              Securely lock USDC to back target venue memberships. Earn up to a **+2.5% APY yield boost** on top of your preferred shares when simulator traffic hits corporate milestones.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 11px;">
+              <div class="form-group">
+                <label for="fan-stake-amount" style="font-size: 10px; color: var(--text-secondary); display: block; margin-bottom: 4px;">USDC Stake Allocation</label>
+                <input type="number" id="fan-stake-amount" class="form-control" value="5000" style="background:#030712; color:#fff; border:1px solid var(--border-color); border-radius:4px; padding:6px; font-size:11px; width:100%;">
+              </div>
+              <div class="form-group">
+                <label for="fan-stake-target" style="font-size: 10px; color: var(--text-secondary); display: block; margin-bottom: 4px;">Milestone Target</label>
+                <select id="fan-stake-target" class="form-control" style="background:#030712; color:#fff; border:1px solid var(--border-color); border-radius:4px; padding:6px; font-size:11px; width:100%;">
+                  <option value="1500_M6">> 1,500 active members in Month 6</option>
+                  <option value="2000_Y1">> 2,000 active members in Year 1</option>
+                  <option value="EBITDA_35">> 35% EBITDA Margin target</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn" style="background: rgba(212,175,55,0.1); border: 1px solid var(--gold); color: var(--gold); padding: 8px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 11px; width: 100%; transition: var(--transition);" onclick="alert('Fan Stake locked successfully! Yield boost configured.')">Initialize Fan Metric Stake</button>
+          </div>
+          
+          <div style="flex: 0.8; background: rgba(0,0,0,0.15); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+            <div style="font-size: 10px; color: var(--text-secondary);">Est. Booster Return</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-green); font-family: var(--font-mono);">12.0% APY</div>
+            <div style="font-size: 9px; color: var(--text-muted); line-height: 1.3;">
+              Includes 9.5% Preferred APY + 2.5% community metric volume booster yield, settled in USDC.
             </div>
           </div>
         </section>
 
+      </div>
+
+      <!-- MODULE 5: GOVERNANCE LEDGER VIEW -->
+      <div id="ledger-view" class="tab-content-panel" style="display: none; flex-direction: column; gap: 2rem; width: 100%;">
+        
+        <!-- Partnership Status and Governance -->
+        <section class="card" style="display: flex; flex-direction: column; gap: 15px;">
+          <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="award" style="color: var(--gold);"></i> Operator & Advisor Credentials Status
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; font-size: 11px;">
+            <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color);">
+              <div style="color: var(--text-secondary); margin-bottom: 2px;">Bobby Jones Links</div>
+              <strong style="color: var(--accent-green);">Management Contract Signed</strong>
+              <div style="color: var(--text-muted); font-size: 9px; margin-top: 3px;">Full operations and hospitality locked.</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color);">
+              <div style="color: var(--text-secondary); margin-bottom: 2px;">Niraj Sheth</div>
+              <strong style="color: var(--accent-cyan);">Board Seat Assigned</strong>
+              <div style="color: var(--text-muted); font-size: 9px; margin-top: 3px;">Lead financial strategist and underwriter.</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color);">
+              <div style="color: var(--text-secondary); margin-bottom: 2px;">Cherry Bekaert LLP</div>
+              <strong style="color: var(--gold);">Tax Strategy Engaged</strong>
+              <div style="color: var(--text-muted); font-size: 9px; margin-top: 3px;">Tax structural modeling and disclosures.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5-Year Financial spreadsheet -->
+        <section class="card" style="display: flex; flex-direction: column; gap: 15px;">
+          <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #fff; margin: 0; display: flex; justify-content: space-between; align-items: center;">
+            <span>📊 5-Year Consolidated Financial Projections</span>
+            <a href="https://docs.google.com/spreadsheets/d/1fawAhHdU5KV40owqDgDc6Chg2QgtCUb2z5-8dMHIJDw/edit?usp=drivesdk" target="_blank" style="font-size: 10px; color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 4px 10px; border-radius: 4px;">Open Sheets ↗</a>
+          </h3>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-color); color: var(--gold);">
+                  <th style="padding: 10px 5px;">Category Line Item</th>
+                  <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 1</th>
+                  <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 2</th>
+                  <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 3</th>
+                  <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 4</th>
+                  <th style="padding: 10px 5px; font-family: var(--font-mono);">Year 5</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                  <td style="padding: 10px 5px; color: #fff;"><strong>Total Revenue (8 streams)</strong></td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$14,700,000</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$15,435,000</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$16,206,750</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$17,017,088</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-green);">$17,867,942</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                  <td style="padding: 10px 5px; color: var(--text-secondary);">Operating Expenses (5% YoY)</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$9,996,000</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$10,495,800</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$11,020,590</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$11,571,620</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-red);">$12,150,201</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                  <td style="padding: 10px 5px; color: #fff;"><strong>EBITDA Earnings</strong></td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: #fff;"><strong>$4,704,000</strong></td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: #fff;"><strong>$4,939,200</strong></td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: #fff;"><strong>$5,186,160</strong></td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: #fff;"><strong>$5,445,468</strong></td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--fff);"><strong>$5,717,741</strong></td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 5px; color: var(--text-secondary);">EBITDA Margin</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+                  <td style="padding: 10px 5px; font-family: var(--font-mono); color: var(--accent-cyan);">32.0%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <!-- Cryptographic Audit Blocks -->
-        <section class="card">
-          <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #fff; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+        <section class="card" id="audit-view">
+          <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #fff; margin: 0; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
             <span>⛓️ Cryptographic Audit Trail Blocks</span>
             <span style="font-size: 10px; background: rgba(0, 245, 160, 0.1); color: var(--accent-green); border: 1px solid var(--accent-green); padding: 2px 8px; border-radius: 10px; font-weight: bold;" id="ledger-status-badge">Verifying Chain...</span>
           </h3>
-          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.2rem;">
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.2rem; margin-top: 0;">
             Below is the real-time SHA-256 hash chain loaded directly from the append-only database. Any data modification breaks the parent links instantly.
           </p>
-          <div id="audit-blocks-container" style="display: flex; flex-direction: column; gap: 10px; max-height: 400px; overflow-y: auto; padding-right: 5px;">
+          <div id="audit-blocks-container" style="display: flex; flex-direction: column; gap: 10px; max-height: 400px; overflow-y: auto; padding-right: 5px; width: 100%;">
             <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono); text-align: center; padding: 20px;">
               Loading cryptographic ledger blocks...
             </div>
@@ -152,207 +436,6 @@
         </section>
 
       </div>
-
-      <!-- Interactive System Audio Tour (Read or Listen) -->
-      <section class="audio-system-card" id="audio-tour-panel">
-        <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
-          🎧 DonKAI Interactive System Audio Tour <span style="font-size: 11px; background: var(--accent-cyan); color: #000; padding: 2px 8px; border-radius: 10px; font-weight: 700;">Read or Listen</span>
-        </h3>
-        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.2rem;">
-          Toggle below to listen to a guided audio walk-through of the DonKAI/Unykorn prediction matching, delta-hedging, and cryptographic auditing architecture.
-        </p>
-
-        <!-- Audio controls -->
-        <div class="audio-controls-row">
-          <div class="audio-btns">
-            <button id="audio-play-btn" class="audio-btn play">
-              <i data-lucide="play" style="width: 14px; height: 14px;"></i> Listen Guided Tour
-            </button>
-            <button id="audio-stop-btn" class="audio-btn stop" disabled>
-              <i data-lucide="square" style="width: 14px; height: 14px;"></i> Stop
-            </button>
-          </div>
-
-          <div class="audio-options-group">
-            <div class="voice-visualizer" id="equalizer-bars">
-              <div class="voice-bar"></div>
-              <div class="voice-bar"></div>
-              <div class="voice-bar"></div>
-              <div class="voice-bar"></div>
-              <div class="voice-bar"></div>
-            </div>
-            
-            <select id="voice-select" class="audio-select" title="Select Voice">
-              <option value="">Default System Voice</option>
-            </select>
-            
-            <select id="speed-select" class="audio-select" title="Speech Speed">
-              <option value="0.8">0.8x Speed</option>
-              <option value="1.0" selected>1.0x Speed</option>
-              <option value="1.2">1.2x Speed</option>
-              <option value="1.5">1.5x Speed</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Narratives Content -->
-        <div class="narratives-box" id="narratives-container">
-          
-          <div class="narrative-block" data-index="0" id="narrative-0">
-            <h4>
-              <i data-lucide="route" style="width: 16px; height: 16px; color: var(--accent-cyan);"></i>
-              1. Direct Custody Routing & Retail Netting (Scenario A & B)
-            </h4>
-            <p>
-              DonKAI implements a hybrid clearinghouse architecture. For wagers exceeding one hundred thousand USDC, capital is routed directly into isolated child wallets in BitGo qualified custody. Retail orders under one hundred thousand USDC are matched internally on our order book, earning a risk-free staking yield of four point five percent APR, and only swept to the Susquehanna OTC desk once net pool exposure crosses the netting threshold.
-            </p>
-          </div>
-
-          <div class="narrative-block" data-index="1" id="narrative-1">
-            <h4>
-              <i data-lucide="trending-up" style="width: 16px; height: 16px; color: var(--accent-purple);"></i>
-              2. Dynamic Black-Scholes Delta Hedging
-            </h4>
-            <p>
-              To maintain risk neutrality, our broker engine continuously calculates option pricing and portfolio delta using a Black-Scholes volatility engine. When a directional imbalance is identified, the system programmatically routes hedging execution orders through Coinbase Prime and decentralized Jupiter swaps on Solana, protecting the platform's solvency.
-            </p>
-          </div>
-
-          <div class="narrative-block" data-index="2" id="narrative-2">
-            <h4>
-              <i data-lucide="shield-alert" style="width: 16px; height: 16px; color: var(--accent-green);"></i>
-              3. Weighted Multi-Oracle Consensus & Arbitration
-            </h4>
-            <p>
-              We resolve contracts using a weighted M-of-N consensus model that aggregates feeds from Chainlink, Pyth Network, and the Federal Reserve. If a dispute is filed within the twenty-four hour challenge window, wagers are held in escrow and escalated to an independent multi-sig committee, removing any single point of failure.
-            </p>
-          </div>
-
-          <div class="narrative-block" data-index="3" id="narrative-3">
-            <h4>
-              <i data-lucide="lock" style="width: 16px; height: 16px; color: var(--gold);"></i>
-              4. Cryptographic State Chain Audit Ledger
-            </h4>
-            <p>
-              Every transaction block and EOD rebalancing sweep is recorded in an append-only cryptographic ledger. Utilizing SHA-256 hash chaining, each block mathematically locks to its predecessor. Any unauthorized attempt to inject database records breaks the hash chain instantly, automatically halting all BitGo disbursements.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- JV Automation Cockpit View -->
-      <section class="card tab-view-content" id="cockpit-view" style="display: flex; flex-direction: column; gap: 20px;">
-        <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
-          <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
-            🏢 Multi-Agent JV Automation Pipeline
-          </h3>
-          <span style="font-size: 11px; background: var(--accent-purple); color: #fff; padding: 4px 10px; border-radius: 12px; font-weight: 700; font-family: var(--font-mono);">#KiwisMulligan1</span>
-        </div>
-        
-        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 5px;">
-          Automate the verification, compliance vetting, custodian vault allocation, and tokenized preferred equity deployment of corporate JV proposals.
-        </p>
-
-        <!-- Pipeline Steps indicators -->
-        <div style="display: flex; gap: 10px; justify-content: space-between; margin-bottom: 10px;">
-          <div class="pipeline-step active" id="p-step-1" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--accent-cyan); background: rgba(0, 242, 254, 0.03); text-align: center; font-size: 11px; transition: var(--transition);">
-            <strong style="display: block; color: var(--accent-cyan);">AGENT 1</strong>
-            <span style="color: #fff;">Underwriting & Vetting</span>
-          </div>
-          <div class="pipeline-step" id="p-step-2" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.01); text-align: center; font-size: 11px; transition: var(--transition);">
-            <strong style="display: block; color: var(--text-secondary);">AGENT 2</strong>
-            <span style="color: #fff;">BitGo Enterprise Policy</span>
-          </div>
-          <div class="pipeline-step" id="p-step-3" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.01); text-align: center; font-size: 11px; transition: var(--transition);">
-            <strong style="display: block; color: var(--text-secondary);">AGENT 3</strong>
-            <span style="color: #fff;">x402 RWA Tokenization</span>
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px;">
-          
-          <!-- Column 1: Deal Ingestion -->
-          <div style="display: flex; flex-direction: column; gap: 12px;">
-            <div class="form-group">
-              <label for="cockpit-payload" style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Raw Deal Payload (Emails & Deck Context)</label>
-              <textarea id="cockpit-payload" class="form-control" style="height: 220px; font-family: var(--font-mono); font-size: 10px; line-height: 1.4; background: #030712; border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; color: var(--text-secondary); width: 100%; resize: none;">[Ingested Proposal: #KiwisMulligan1]
-Deal: Kiwi's Mulligan Experiential Golf bay and Entertainment Venue (Alpharetta, GA).
-Lead Sponsor: Young Woo, Paresh Govan (Fine Mulligans Inc.).
-Raise Target: $27,000,000 USD via Castle Placement Private Placement ECN.
-Entity Val: $48,000,000 pre-revenue valuation.
-Vulnerability Check: A halted Reg A+ filing exists. Audit records reveal a $1.2M historical debt liability, and a core seed capital associate is flagged under SEC Rule 506(d) as a disqualifying Bad Actor.</textarea>
-            </div>
-            
-            <button class="btn-primary" id="run-pipeline-btn" style="padding: 10px; border-radius: 8px; font-weight: bold;">Execute AI Pipeline</button>
-            <button class="btn" id="excise-btn" style="display: none; background: rgba(0, 245, 160, 0.1); border: 1px solid var(--accent-green); color: var(--accent-green); padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: var(--transition);">✂️ Excise Bad Actor & Debt</button>
-          </div>
-
-          <!-- Column 2: Terminal Console -->
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div style="font-size: 11px; color: var(--text-secondary);">Pipeline Terminal Output</div>
-            <div id="cockpit-terminal" style="flex: 1; background: #010409; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-mono); font-size: 10px; padding: 12px; height: 260px; overflow-y: auto; color: var(--accent-cyan); white-space: pre-wrap;">Unykorn Cockpit Shell v1.0.0
-System ready. Awaiting deal payload...</div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Fractions & Yield RWA Dashboard -->
-      <section class="card tab-view-content" id="yield-view" style="display: none; flex-direction: column; gap: 20px;">
-        <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
-          <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin: 0;">📊 Fractions & Yield RWA Dashboard</h3>
-          <span style="font-size: 10px; background: rgba(0, 230, 118, 0.1); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 2px 8px; border-radius: 10px; font-weight: bold;">POS Connected</span>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
-          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
-            <div style="font-size: 10px; color: var(--text-secondary);">Total Venue Valuation</div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: #fff; font-family: var(--font-mono); margin-top: 4px;">$48,000,000</div>
-          </div>
-          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
-            <div style="font-size: 10px; color: var(--text-secondary);">Target Capital Raise</div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: #fff; font-family: var(--font-mono); margin-top: 4px;">$27,000,000</div>
-          </div>
-          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
-            <div style="font-size: 10px; color: var(--text-secondary);">Preferred Return yield</div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan); font-family: var(--font-mono); margin-top: 4px;">9.5% APY</div>
-          </div>
-          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
-            <div style="font-size: 10px; color: var(--text-secondary);">Token standard</div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: var(--accent-purple); font-family: var(--font-mono); margin-top: 4px;">Solana Token-2022</div>
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px;">
-          
-          <!-- Column 1: Live POS Ticker Feed -->
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <h4 style="font-size: 0.9rem; color: #fff; font-family: var(--font-display);">⛳ Real-Time Venue Point-of-Sale (POS) Logs</h4>
-            <div id="pos-logs-container" style="background: #010409; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-mono); font-size: 10px; padding: 12px; height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
-              <div style="color: var(--text-muted); text-align: center; margin-top: 80px;">Waiting for POS logs sweep...</div>
-            </div>
-          </div>
-
-          <!-- Column 2: x402 Yield Routing Information -->
-          <div style="display: flex; flex-direction: column; gap: 10px; background: rgba(223, 184, 108, 0.03); border: 1px solid rgba(223, 184, 108, 0.15); padding: 15px; border-radius: 8px;">
-            <h4 style="font-size: 0.9rem; color: var(--gold); font-family: var(--font-display); display: flex; align-items: center; gap: 6px;">
-              ⚙️ x402 Automated Yield Mechanism
-            </h4>
-            <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
-              Unykorn's x402 protocol interfaces directly with Stripe/Toast POS terminals at the Alpharetta venue, programmatically routing F&B, membership, and bay hire revenues to the Solana contract:
-            </p>
-            <div style="font-size: 9px; font-family: var(--font-mono); background: rgba(0,0,0,0.3); padding: 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); line-height: 1.5; color: var(--accent-cyan);">
-              [Toast POS Register] ➔ [USD Gateway] ➔ [USDC Swap] ➔ [BitGo Child Escrow Wallet] ➔ [x402 Yield Smart Contract] ➔ [On-Chain Token Holders]
-            </div>
-            <p style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.3;">
-              *All yield payouts are issued in USDC/USDT on-chain monthly. Non-whitelisted addresses are restricted by Token-2022 metadata rules.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
     </main>
 
     <!-- Right Panel: Betting Slip & Unykorn Advantages -->
@@ -361,8 +444,8 @@ System ready. Awaiting deal payload...</div>
       <!-- Order Ticket -->
       <div class="card" style="display: flex; flex-direction: column; gap: 10px;">
         <div class="ticket-header">
-          <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin: 0;">Order Ticket</h3>
-          <span style="font-size: 10px; color: var(--text-secondary); font-family: var(--font-mono); font-weight: bold;" id="ticket-market-id">FIT21-SENATE</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin: 0;">Hedge Order Slip</h3>
+          <span style="font-size: 10px; color: var(--text-secondary); font-family: var(--font-mono); font-weight: bold;" id="ticket-market-id">ZONING-ALPHARETTA</span>
         </div>
 
         <div class="ticket-tab-row">
@@ -397,7 +480,7 @@ System ready. Awaiting deal payload...</div>
         <!-- Leverage Slider -->
         <div class="form-group" style="margin-top: 6px; margin-bottom: 12px;">
           <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 6px;">
-            <label style="margin: 0;">Trading Leverage</label>
+            <label style="margin: 0;">Hedge Leverage</label>
             <strong id="leverage-val-label" style="color: var(--accent-cyan); font-family: var(--font-mono);">1x (No Leverage)</strong>
           </div>
           <input type="range" id="leverage-select" min="1" max="10" step="1" value="1" style="width: 100%; accent-color: var(--accent-cyan); background: #030712; cursor: pointer;">
@@ -445,7 +528,7 @@ System ready. Awaiting deal payload...</div>
           </div>
         </div>
 
-        <button id="place-wager-btn" class="btn-primary" style="margin-top: 10px;">Place Event Wager</button>
+        <button id="place-wager-btn" class="btn-primary" style="margin-top: 10px;">Execute Bilateral Event Swap</button>
       </div>
 
       <!-- Unykorn Institutional Edge Advantages Widget -->

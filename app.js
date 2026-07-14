@@ -433,20 +433,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================================================================
     // NAVBAR NAVIGATION AND TAB SWITCHING SYSTEM
     // ========================================================================
-    const navCockpit = document.getElementById('nav-cockpit');
+    const navCustody = document.getElementById('nav-custody');
     const navYield = document.getElementById('nav-yield');
-    const navAudit = document.getElementById('nav-audit');
     const navHedging = document.getElementById('nav-hedging');
+    const navLedger = document.getElementById('nav-ledger');
 
-    const cockpitView = document.getElementById('cockpit-view');
+    const custodyView = document.getElementById('custody-view');
     const yieldView = document.getElementById('yield-view');
-    const auditView = document.getElementById('audit-view');
-    const exchangeView = document.getElementById('exchange-view');
+    const hedgingView = document.getElementById('hedging-view');
+    const ledgerView = document.getElementById('ledger-view');
     const audioTourPanel = document.getElementById('audio-tour-panel');
 
     function switchTab(activeNav, activeViews, hideViews) {
         // Toggle Nav Classes
-        [navCockpit, navYield, navAudit, navHedging].forEach(nav => {
+        [navCustody, navYield, navHedging, navLedger].forEach(nav => {
             if (nav) nav.classList.remove('active');
         });
         activeNav.classList.add('active');
@@ -457,29 +457,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         activeViews.forEach(view => {
             if (view) {
-                view.style.display = (view.tagName === 'SECTION' || view.tagName === 'DIV') ? 'flex' : 'block';
-                if (view.id === 'cockpit-view') view.style.display = 'flex';
-                if (view.id === 'yield-view') view.style.display = 'flex';
-                if (view.id === 'audit-view') view.style.display = 'flex';
+                view.style.display = 'flex';
             }
         });
     }
 
-    navCockpit.addEventListener('click', () => {
-        switchTab(navCockpit, [cockpitView], [yieldView, auditView, exchangeView, audioTourPanel]);
+    navCustody.addEventListener('click', () => {
+        switchTab(navCustody, [custodyView], [yieldView, hedgingView, ledgerView, audioTourPanel]);
     });
 
     navYield.addEventListener('click', () => {
-        switchTab(navYield, [yieldView], [cockpitView, auditView, exchangeView, audioTourPanel]);
-    });
-
-    navAudit.addEventListener('click', () => {
-        switchTab(navAudit, [auditView], [cockpitView, yieldView, exchangeView, audioTourPanel]);
-        fetchAndRenderLedgerBlocks();
+        switchTab(navYield, [yieldView], [custodyView, ledgerView, hedgingView, audioTourPanel]);
     });
 
     navHedging.addEventListener('click', () => {
-        switchTab(navHedging, [exchangeView, audioTourPanel], [cockpitView, yieldView, auditView]);
+        switchTab(navHedging, [hedgingView, audioTourPanel], [custodyView, yieldView, ledgerView]);
+    });
+
+    navLedger.addEventListener('click', () => {
+        switchTab(navLedger, [ledgerView], [custodyView, yieldView, hedgingView, audioTourPanel]);
+        fetchAndRenderLedgerBlocks();
     });
 
     // ========================================================================
@@ -665,15 +662,14 @@ document.addEventListener('DOMContentLoaded', () => {
         highlightStep(1);
 
         writeLog('⚡ [SYSTEM] Ingesting deal payload #KiwisMulligan1...');
-        writeLog('⚡ [SYSTEM] Ingestion parameters parsing...');
-
-        setTimeout(() => {
+        writeLog('⚡ [SYSTEM] Ingestion paramet        setTimeout(() => {
             writeLog('\n▶️ [AGENT 1] Initializing Underwriting & Bad-Actor Vetting Engine...');
             writeLog('   - Target:   Fine Mulligans Inc. (Delaware C-Corp)');
             writeLog('   - Entitlements & Zoning Check: OK');
             writeLog('   - Broker Registration Check: Castle Placement (FINRA/SIPC verified)');
 
             setTimeout(() => {
+                const topStatus = document.getElementById('top-status-indicator');
                 if (!hasExcised) {
                     writeLog('\n🚨 [AGENT 1] CRITICAL VOLATILITY BLOCKED:');
                     writeLog('   - SEC Rule 506(d) Bad Actor Trigger Detected!');
@@ -686,12 +682,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     exciseBtn.style.display = 'block';
                     runPipelineBtn.disabled = false;
                     
+                    if (topStatus) {
+                        topStatus.textContent = 'Compliance Block: Gate Active';
+                        topStatus.style.color = 'var(--accent-red)';
+                        topStatus.style.borderColor = 'var(--accent-red)';
+                        topStatus.style.background = 'rgba(255, 82, 82, 0.05)';
+                    }
                     speakWarning("Alert! Underwriting Agent has detected a critical bad actor trigger from historical Regulation A plus filings. Ingestion blocked.");
                 } else {
                     writeLog('   - Compliance Check: Bad actor fully severed (Release deeds verified).');
                     writeLog('   - Balance Sheet Check: $1.2M historical debt excised from JV SPV.');
                     writeLog('   - Valuation Check: Net asset appraisal verified at fair multiples.');
                     writeLog('✅ [AGENT 1] RISK STATUS: GREEN_APPROVED');
+
+                    if (topStatus) {
+                        topStatus.textContent = 'Compliance Passed: Approved';
+                        topStatus.style.color = 'var(--accent-green)';
+                        topStatus.style.borderColor = 'var(--accent-green)';
+                        topStatus.style.background = 'rgba(105, 240, 174, 0.05)';
+                    }
 
                     setTimeout(() => {
                         highlightStep(2);
@@ -746,5 +755,7 @@ Vulnerability Check: Bad actor fully severed (legal release verified). Legacy de
         cockpitTerminal.scrollTop = cockpitTerminal.scrollHeight;
     }
 
+    // Set default tab on load
+    switchTab(navCustody, [custodyView], [yieldView, hedgingView, ledgerView, audioTourPanel]);
     updateTicketUI();
 });
